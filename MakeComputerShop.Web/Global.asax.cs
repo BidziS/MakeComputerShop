@@ -21,6 +21,7 @@ namespace MakeComputerShop.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             AutofacConfig.ConfigurationAutofac();
+
         }
     }
 }
