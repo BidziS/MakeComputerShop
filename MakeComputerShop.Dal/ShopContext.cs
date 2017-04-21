@@ -16,6 +16,10 @@ namespace MakeComputerShop.Dal
         }
 
         public DbSet<UserDb> Users { get; set; }
+        public DbSet<MotherboardDb> Motherboards { get; set; }
+        public DbSet<ProcesorDb> Procesors { get; set; }
+        public DbSet<RamDb> Rams { get; set; }
+        public DbSet<ProducentDb> Producents { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
