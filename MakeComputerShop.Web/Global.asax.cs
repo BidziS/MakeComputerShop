@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using MakeComputerShop.Bll;
 using MakeComputerShop.Web;
 
 namespace MakeComputerShop.Web
@@ -21,6 +22,7 @@ namespace MakeComputerShop.Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             AutofacConfig.ConfigurationAutofac();
+            MapperConfig.Configuration();
 
         }
     }

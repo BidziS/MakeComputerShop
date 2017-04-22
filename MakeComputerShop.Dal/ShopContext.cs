@@ -11,7 +11,7 @@ namespace MakeComputerShop.Dal
 {
     public class ShopContext:DbContext
     {
-        public ShopContext(string connectionString):base(connectionString)
+        public ShopContext(string connectionString = "ComputerShop") :base(connectionString)
         {
         }
 

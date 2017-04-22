@@ -70,6 +70,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IMotherboardRepository.cs" />
     <Compile Include="Repositories\impl\MotherboardRepository.cs" />
+    <Compile Include="Repositories\impl\ProducentRepository.cs" />
+    <Compile Include="Repositories\IProducentRepository.cs" />
     <Compile Include="ShopContext.cs" />
     <Compile Include="ShopInitializer.cs" />
   </ItemGroup>
