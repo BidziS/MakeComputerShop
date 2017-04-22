@@ -9,6 +9,10 @@ namespace MakeComputerShop.Bll.Services
 {
     public interface IProducentService
     {
-        ProducentDto GetProducent(int produucentId);
+        IEnumerable<ProducentDto> GetProducents();
+        ProducentDto GetProducentById(int producentId);
+        void InsertProducent(ProducentDto producent);
+        void DeleteProducent(int producentId);
+        void UpdateProducent(ProducentDto producent);
     }
 }

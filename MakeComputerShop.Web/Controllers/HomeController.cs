@@ -19,7 +19,7 @@ namespace MakeComputerShop.Web.Controllers
 
         public ActionResult Index()
         {
-            ProducentDto producent = iProducentService.GetProducent(1);
+            ProducentDto producent = iProducentService.GetProducentById(1);
 
             ViewBag.Title = "Home Page " + producent.Name;
 
