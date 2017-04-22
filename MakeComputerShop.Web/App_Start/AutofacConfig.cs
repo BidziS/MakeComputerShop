@@ -7,7 +7,7 @@ using Autofac;
 using Autofac.Integration.Mvc;
 using MakeComputerShop.Bll;
 
-namespace MakeComputerShop.Web.App_Start
+namespace MakeComputerShop.Web
 {
     public class AutofacConfig
     {
@@ -18,6 +18,8 @@ namespace MakeComputerShop.Web.App_Start
             builder.RegisterControllers(typeof(WebApiApplication).Assembly);
 
             builder.RegisterModule(new ServicesModule());
+
+            builder.RegisterModule(new RepositoriesModule());
 
             builder.RegisterControllers(typeof(WebApiApplication).Assembly);
 
