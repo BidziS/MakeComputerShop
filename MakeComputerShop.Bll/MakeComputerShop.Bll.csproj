@@ -70,11 +70,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dtos\MotherboardDto.cs" />
+    <Compile Include="Dtos\MotherboardElementsDto\ChipsetDto.cs" />
+    <Compile Include="Dtos\MotherboardElementsDto\SocketDto.cs" />
     <Compile Include="Dtos\ProducentDto.cs" />
     <Compile Include="MapperConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoriesModule.cs" />
     <Compile Include="ServicesModule.cs" />
+    <Compile Include="Services\IMotherboardService.cs" />
+    <Compile Include="Services\Impl\MotherboardService.cs" />
     <Compile Include="Services\Impl\ProducentService.cs" />
     <Compile Include="Services\IProducentService.cs" />
   </ItemGroup>

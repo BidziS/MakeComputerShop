@@ -60,9 +60,19 @@
     <Compile Include="Migrations\201704221032271_little changes of models.Designer.cs">
       <DependentUpon>201704221032271_little changes of models.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704222013195_add socket and chipset models and change procesor and motherboard models.cs" />
+    <Compile Include="Migrations\201704222013195_add socket and chipset models and change procesor and motherboard models.Designer.cs">
+      <DependentUpon>201704222013195_add socket and chipset models and change procesor and motherboard models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704222017211_add chipset and socket models and change motherboard and procesor models.cs" />
+    <Compile Include="Migrations\201704222017211_add chipset and socket models and change motherboard and procesor models.Designer.cs">
+      <DependentUpon>201704222017211_add chipset and socket models and change motherboard and procesor models.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseDb.cs" />
     <Compile Include="Models\MotherboardDb.cs" />
+    <Compile Include="Models\MotherboardElements\ChipsetDb.cs" />
+    <Compile Include="Models\MotherboardElements\SocketDb.cs" />
     <Compile Include="Models\ProcesorDb.cs" />
     <Compile Include="Models\ProducentDb.cs" />
     <Compile Include="Models\RamDb.cs" />
@@ -88,6 +98,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704221032271_little changes of models.resx">
       <DependentUpon>201704221032271_little changes of models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704222013195_add socket and chipset models and change procesor and motherboard models.resx">
+      <DependentUpon>201704222013195_add socket and chipset models and change procesor and motherboard models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704222017211_add chipset and socket models and change motherboard and procesor models.resx">
+      <DependentUpon>201704222017211_add chipset and socket models and change motherboard and procesor models.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

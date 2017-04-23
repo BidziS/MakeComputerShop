@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MakeComputerShop.Dal.Models;
+using MakeComputerShop.Dal.Models.MotherboardElements;
 
 namespace MakeComputerShop.Dal
 {
@@ -20,6 +21,8 @@ namespace MakeComputerShop.Dal
         public DbSet<ProcesorDb> Procesors { get; set; }
         public DbSet<RamDb> Rams { get; set; }
         public DbSet<ProducentDb> Producents { get; set; }
+        public DbSet<SocketDb> Sockets { get; set; }
+        public DbSet<ChipsetDb> Chipsets { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

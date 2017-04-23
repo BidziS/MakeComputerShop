@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MakeComputerShop.Dal.Models.MotherboardElements;
 
 namespace MakeComputerShop.Dal.Models
 {
@@ -26,6 +27,8 @@ namespace MakeComputerShop.Dal.Models
         [Required]
         public double Frequency { get; set; }
 
+        [Required]
+        public SocketDb Socket { get; set; }
 
     }
 }
