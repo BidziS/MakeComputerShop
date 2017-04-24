@@ -23,6 +23,9 @@ namespace MakeComputerShop.Dal
         public DbSet<ProducentDb> Producents { get; set; }
         public DbSet<SocketDb> Sockets { get; set; }
         public DbSet<ChipsetDb> Chipsets { get; set; }
+        public DbSet<ComputerCasingDb> ComputerCasings { get; set; }
+        public DbSet<HardDriveDb> HardDrives { get; set; }
+        public DbSet<PowerSupplyDb> PowerSupplies { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

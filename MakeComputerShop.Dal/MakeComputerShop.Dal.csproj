@@ -76,6 +76,10 @@
     <Compile Include="Migrations\201704241413449_after merge.Designer.cs">
       <DependentUpon>201704241413449_after merge.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704241445273_update shop context.cs" />
+    <Compile Include="Migrations\201704241445273_update shop context.Designer.cs">
+      <DependentUpon>201704241445273_update shop context.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseDb.cs" />
     <Compile Include="Models\ComputerCasingDb.cs" />
@@ -121,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704241413449_after merge.resx">
       <DependentUpon>201704241413449_after merge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704241445273_update shop context.resx">
+      <DependentUpon>201704241445273_update shop context.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
