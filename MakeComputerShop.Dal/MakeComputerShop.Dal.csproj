@@ -68,11 +68,22 @@
     <Compile Include="Migrations\201704222017211_add chipset and socket models and change motherboard and procesor models.Designer.cs">
       <DependentUpon>201704222017211_add chipset and socket models and change motherboard and procesor models.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704231859351_add computerCasing, hardDrive and powerSupply.cs" />
+    <Compile Include="Migrations\201704231859351_add computerCasing, hardDrive and powerSupply.Designer.cs">
+      <DependentUpon>201704231859351_add computerCasing, hardDrive and powerSupply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704241413449_after merge.cs" />
+    <Compile Include="Migrations\201704241413449_after merge.Designer.cs">
+      <DependentUpon>201704241413449_after merge.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseDb.cs" />
+    <Compile Include="Models\ComputerCasingDb.cs" />
+    <Compile Include="Models\HardDriveDb.cs" />
     <Compile Include="Models\MotherboardDb.cs" />
     <Compile Include="Models\MotherboardElements\ChipsetDb.cs" />
     <Compile Include="Models\MotherboardElements\SocketDb.cs" />
+    <Compile Include="Models\PowerSupplyDb.cs" />
     <Compile Include="Models\ProcesorDb.cs" />
     <Compile Include="Models\ProducentDb.cs" />
     <Compile Include="Models\RamDb.cs" />
@@ -104,6 +115,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704222017211_add chipset and socket models and change motherboard and procesor models.resx">
       <DependentUpon>201704222017211_add chipset and socket models and change motherboard and procesor models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704231859351_add computerCasing, hardDrive and powerSupply.resx">
+      <DependentUpon>201704231859351_add computerCasing, hardDrive and powerSupply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704241413449_after merge.resx">
+      <DependentUpon>201704241413449_after merge.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
