@@ -27,6 +27,9 @@ namespace MakeComputerShop.Bll
 
                 cfg.CreateMap<MotherboardDto, MotherboardDb>();
                 cfg.CreateMap<MotherboardDb, MotherboardDto>();
+
+                cfg.CreateMap<RamDto, RamDb>();
+                cfg.CreateMap<RamDb, RamDto>();
             });
         }
     }

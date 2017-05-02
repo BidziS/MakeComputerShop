@@ -8,7 +8,7 @@ using MakeComputerShop.Dal.Models;
 
 namespace MakeComputerShop.Bll.Dtos
 {
-    public class MotherboardDto
+    public class MotherboardDto:BaseDto
     {
         public ProducentDto Producent { get; set; }
 

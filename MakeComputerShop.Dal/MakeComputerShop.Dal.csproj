@@ -80,6 +80,10 @@
     <Compile Include="Migrations\201704241445273_update shop context.Designer.cs">
       <DependentUpon>201704241445273_update shop context.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705021703376_change models.cs" />
+    <Compile Include="Migrations\201705021703376_change models.Designer.cs">
+      <DependentUpon>201705021703376_change models.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseDb.cs" />
     <Compile Include="Models\ComputerCasingDb.cs" />
@@ -96,7 +100,9 @@
     <Compile Include="Repositories\IMotherboardRepository.cs" />
     <Compile Include="Repositories\impl\MotherboardRepository.cs" />
     <Compile Include="Repositories\impl\ProducentRepository.cs" />
+    <Compile Include="Repositories\impl\RamRepository.cs" />
     <Compile Include="Repositories\IProducentRepository.cs" />
+    <Compile Include="Repositories\IRamRepository.cs" />
     <Compile Include="ShopContext.cs" />
     <Compile Include="ShopInitializer.cs" />
   </ItemGroup>
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704241445273_update shop context.resx">
       <DependentUpon>201704241445273_update shop context.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705021703376_change models.resx">
+      <DependentUpon>201705021703376_change models.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
