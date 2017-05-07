@@ -8,11 +8,13 @@ using MakeComputerShop.Dal.Models;
 
 namespace MakeComputerShop.Dal.Repositories.impl
 {
-    public class MotherboardRepository:DbContext,IMotherboardRepository
+    public class MotherboardRepository:IMotherboardRepository
     {
         private ShopContext context;
 
-        protected MotherboardRepository(ShopContext context)
+        private IProducentRepository iProducentRepository;
+
+        public MotherboardRepository(ShopContext context)
         {
             this.context = context;
         }
@@ -20,6 +22,21 @@ namespace MakeComputerShop.Dal.Repositories.impl
         public IEnumerable<MotherboardDb> GetMotherboards()
         {
             return context.Motherboards.ToList();
+        }
+
+        public IEnumerable<MotherboardDb> GetMotherboardsByProducentId(int producentId)
+        {
+            return context.Motherboards.Include(m => m.Producent).Where(m => m.ProducentId == producentId);
+        }
+
+        public IEnumerable<MotherboardDb> GetMotherboardsBySocket(int socketId)
+        {
+            return context.Motherboards.Include(m => m.Socket).Where(m => m.SocketId == socketId);
+        }
+
+        public IEnumerable<MotherboardDb> GetMotherboardsByChipset(int chipsetId)
+        {
+            return context.Motherboards.Include(m => m.Chipset).Where(m => m.ChipsetId == chipsetId);
         }
 
         public MotherboardDb GetMotherboardById(int motherboardId)
@@ -46,6 +63,26 @@ namespace MakeComputerShop.Dal.Repositories.impl
         public void Save()
         {
             context.SaveChanges();
+        }
+
+        private bool disposed = false;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    context.Dispose();
+                }
+            }
+            this.disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

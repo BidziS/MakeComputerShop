@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MakeComputerShop.Dal.Models.MotherboardElements;
 
 namespace MakeComputerShop.Dal.Models
 {
@@ -13,12 +14,16 @@ namespace MakeComputerShop.Dal.Models
 
         [Required]
         public int ProducentId { get; set; }
+        
+        public SocketDb Socket { get; set; }
 
         [Required]
-        public string Socket { get; set; }
+        public int SocketId { get; set; }
+        
+        public ChipsetDb Chipset { get; set; }
 
         [Required]
-        public string Chipset { get; set; }
+        public int ChipsetId { get; set; }
 
         [Required]
         public int MaxMemory { get; set; }

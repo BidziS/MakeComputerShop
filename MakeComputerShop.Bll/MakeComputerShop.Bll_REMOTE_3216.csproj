@@ -70,29 +70,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dtos\BaseDto.cs" />
-    <Compile Include="Dtos\ComputerCasingDto.cs" />
-    <Compile Include="Dtos\HardDriveDto.cs" />
-    <Compile Include="Dtos\MotherboardDto.cs" />
-    <Compile Include="Dtos\MotherboardElementsDto\ChipsetDto.cs" />
-    <Compile Include="Dtos\MotherboardElementsDto\SocketDto.cs" />
-    <Compile Include="Dtos\PowerSupplyDto.cs" />
     <Compile Include="Dtos\ProducentDto.cs" />
-    <Compile Include="Dtos\RamDto.cs" />
     <Compile Include="MapperConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoriesModule.cs" />
     <Compile Include="ServicesModule.cs" />
-    <Compile Include="Services\IComputerCasingService.cs" />
-    <Compile Include="Services\IHardDriveService.cs" />
-    <Compile Include="Services\IMotherboardService.cs" />
-    <Compile Include="Services\Impl\ComputerCasingService.cs" />
-    <Compile Include="Services\Impl\MotherboardService.cs" />
     <Compile Include="Services\Impl\ProducentService.cs" />
-    <Compile Include="Services\Impl\RamService.cs" />
-    <Compile Include="Services\IPowerSupplyService.cs" />
     <Compile Include="Services\IProducentService.cs" />
-    <Compile Include="Services\IRamService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
