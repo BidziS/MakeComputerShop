@@ -5,17 +5,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MakeComputerShop.Dal.Models
+namespace MakeComputerShop.Dal.Models.MotherboardElements
 {
-    public class BaseDb
+    public class ChipsetDb
     {
         public int Id { get; set; }
 
         [Required]
         public string Name { get; set; }
-
-        public double Price { get; set; }
-
-        
     }
 }
