@@ -7,11 +7,8 @@ using System.Threading.Tasks;
 
 namespace MakeComputerShop.Dal.Models
 {
-    public class ProducentDb
+    public class ProducentDb:BaseDb
     {
-        public int Id { get; set; }
 
-        [Required]
-        public string Name { get; set; }
     }
 }

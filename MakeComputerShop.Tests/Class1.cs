@@ -8,6 +8,5 @@ namespace MakeComputerShop.Tests
 {
     public class Class1
     {
-        public string elo { get; set; }
     }
 }

@@ -7,13 +7,10 @@ using MakeComputerShop.Dal.Models;
 
 namespace MakeComputerShop.Dal.Repositories
 {
-    public interface IMotherboardRepository:IDisposable
+    public interface IMotherboardRepository
     {
         IEnumerable<MotherboardDb> GetMotherboards();
-        IEnumerable<MotherboardDb> GetMotherboardsByProducentId(int producentId);
-        IEnumerable<MotherboardDb> GetMotherboardsBySocket(int socketId);
-        IEnumerable<MotherboardDb> GetMotherboardsByChipset(int chipsetId);
-        MotherboardDb GetMotherboardById(int motherboardId);       
+        MotherboardDb GetMotherboardById(int motherboardId);
         void InsertMotherboard(MotherboardDb motherboard);
         void DeleteMotherboard(int motherboardId);
         void UpdateMotherboard(MotherboardDb motherboard);
