@@ -12,9 +12,9 @@ namespace MakeComputerShop.Dal.Repositories
         IEnumerable<GraphicsCardDb> GetGraphicCard();
         IEnumerable<GraphicsCardDb> GetGraphicCardByProducentId(int producentId);
         IEnumerable<GraphicsCardDb> GetGraphicCardByChipset(int chipsetId);
-        GraphicsCardDb GetGraphicCardById(int GraphicCardId);
+        GraphicsCardDb GetGraphicCardById(int graphicCardId);
         void InsertGraphicCard(GraphicsCardDb graphicCard);
-        void DeleteGraphicCard(int GraphicCardId);
+        void DeleteGraphicCard(int graphicCardId);
         void UpdateGraphicCard(GraphicsCardDb graphicCard);
         void Save();
     }

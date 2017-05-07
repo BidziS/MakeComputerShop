@@ -8,46 +8,46 @@ using MakeComputerShop.Dal.Models;
 
 namespace MakeComputerShop.Dal.Repositories.impl
 {
-    public class DriveRepository : IDriveRepository
+    public class NetworkCardRepository : INetworkCardRepository
     {
         private ShopContext context;
 
         private IDriveRepository iDriveRepository;
 
-        public DriveRepository(ShopContext context)
+        public NetworkCardRepository(ShopContext context)
         {
             this.context = context;
         }
 
-        public IEnumerable<DriveDb> GetDrives()
+        public IEnumerable<NetworkCardDb> GetNetworkCard()
         {
-            return context.Drives.ToList();
+            return context.NetworkCards.ToList();
         }
 
-        public IEnumerable<DriveDb> GetDrivesByProducentId(int producentId)
+        public IEnumerable<NetworkCardDb> GetNetworkCardByProducentId(int producentId)
         {
-            return context.Drives.Include(m => m.Producent).Where(m => m.ProducentId == producentId);
+            return context.NetworkCards.Include(m => m.Producent).Where(m => m.ProducentId == producentId);
         }
 
-        public DriveDb GetDriveById(int driveId)
+        public NetworkCardDb GetNetworkCardById(int netowrkCardId)
         {
-            return context.Drives.Find(driveId);
+            return context.NetworkCards.Find(netowrkCardId);
         }
 
-        public void InsertDrive(DriveDb drive)
+        public void InsertNetworkCard(NetworkCardDb networkCard)
         {
-            context.Drives.Add(drive);
+            context.NetworkCards.Add(networkCard);
         }
 
-        public void DeleteDrive(int driveId)
+        public void DeleteNetworkCard(int networkCardId)
         {
-            DriveDb drive = context.Drives.Find(driveId);
-            if (drive != null) context.Drives.Remove(drive);
+            NetworkCardDb networkCard = context.NetworkCards.Find(networkCardId);
+            if (networkCard != null) context.NetworkCards.Remove(networkCard);
         }
 
-        public void UpdateDrive(DriveDb drive)
+        public void UpdateNetworkCard(NetworkCardDb networkCard)
         {
-            context.Entry(drive).State = EntityState.Modified;
+            context.Entry(networkCard).State = EntityState.Modified;
         }
 
         public void Save()
@@ -74,5 +74,6 @@ namespace MakeComputerShop.Dal.Repositories.impl
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+
     }
 }
