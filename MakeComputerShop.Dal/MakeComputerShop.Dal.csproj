@@ -104,7 +104,6 @@
     <Compile Include="Repositories\IProducentRepository.cs" />
     <Compile Include="Repositories\IRamRepository.cs" />
     <Compile Include="ShopContext.cs" />
-    <Compile Include="ShopInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
