@@ -26,6 +26,12 @@ namespace MakeComputerShop.Dal
         public DbSet<ComputerCasingDb> ComputerCasings { get; set; }
         public DbSet<HardDriveDb> HardDrives { get; set; }
         public DbSet<PowerSupplyDb> PowerSupplies { get; set; }
+        public DbSet<DriveDb> Drives { get ; set; }
+        public DbSet<GraphicsCardDb> GraphicCards {get; set; }
+        public DbSet<NetworkCardDb> NetworkCards {get; set; }
+        public DbSet<SoundCardDb> SoundCards {get; set; }
+
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
