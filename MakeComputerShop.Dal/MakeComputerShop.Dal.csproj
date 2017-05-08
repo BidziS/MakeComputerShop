@@ -84,20 +84,30 @@
     <Compile Include="Migrations\201705021703376_change models.Designer.cs">
       <DependentUpon>201705021703376_change models.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705081432279_after merge migration.cs" />
+    <Compile Include="Migrations\201705081432279_after merge migration.Designer.cs">
+      <DependentUpon>201705081432279_after merge migration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseDb.cs" />
     <Compile Include="Models\ComputerCasingDb.cs" />
+    <Compile Include="Models\DriveDb.cs" />
+    <Compile Include="Models\GraphicsCardDb.cs" />
     <Compile Include="Models\HardDriveDb.cs" />
     <Compile Include="Models\MotherboardDb.cs" />
     <Compile Include="Models\MotherboardElements\ChipsetDb.cs" />
     <Compile Include="Models\MotherboardElements\SocketDb.cs" />
+    <Compile Include="Models\NetworkCardDb.cs" />
     <Compile Include="Models\PowerSupplyDb.cs" />
     <Compile Include="Models\ProcesorDb.cs" />
     <Compile Include="Models\ProducentDb.cs" />
     <Compile Include="Models\RamDb.cs" />
+    <Compile Include="Models\SoundCardDb.cs" />
     <Compile Include="Models\UserDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IComputerCasingRepository.cs" />
+    <Compile Include="Repositories\IDriveRepository.cs" />
+    <Compile Include="Repositories\IGraphicsCardRepository.cs" />
     <Compile Include="Repositories\IHardDriveRepository.cs" />
     <Compile Include="Repositories\IMotherboardRepository.cs" />
     <Compile Include="Repositories\impl\ComputerCasingRepository.cs" />
@@ -106,9 +116,11 @@
     <Compile Include="Repositories\impl\PowerSupplyRepository.cs" />
     <Compile Include="Repositories\impl\ProducentRepository.cs" />
     <Compile Include="Repositories\impl\RamRepository.cs" />
+    <Compile Include="Repositories\INetworkCardRepository.cs" />
     <Compile Include="Repositories\IPowerSupplyRepository.cs" />
     <Compile Include="Repositories\IProducentRepository.cs" />
     <Compile Include="Repositories\IRamRepository.cs" />
+    <Compile Include="Repositories\ISoundCardRepository.cs" />
     <Compile Include="ShopContext.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705021703376_change models.resx">
       <DependentUpon>201705021703376_change models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705081432279_after merge migration.resx">
+      <DependentUpon>201705081432279_after merge migration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
