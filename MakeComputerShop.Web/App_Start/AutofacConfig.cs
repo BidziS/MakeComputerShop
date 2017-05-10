@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
 using MakeComputerShop.Bll;
@@ -15,13 +11,11 @@ namespace MakeComputerShop.Web
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterControllers(typeof(WebApiApplication).Assembly);
+            builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
             builder.RegisterModule(new ServicesModule());
 
             builder.RegisterModule(new RepositoriesModule());
-
-            builder.RegisterControllers(typeof(WebApiApplication).Assembly);
 
             var container = builder.Build();
 

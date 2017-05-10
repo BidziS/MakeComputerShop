@@ -30,6 +30,7 @@ namespace MakeComputerShop.Bll
 
                 cfg.CreateMap<RamDto, RamDb>();
                 cfg.CreateMap<RamDb, RamDto>();
+
             });
         }
     }

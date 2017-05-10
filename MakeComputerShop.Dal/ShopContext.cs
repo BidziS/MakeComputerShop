@@ -7,12 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using MakeComputerShop.Dal.Models;
 using MakeComputerShop.Dal.Models.MotherboardElements;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace MakeComputerShop.Dal
 {
     public class ShopContext:DbContext
     {
-        public ShopContext(string connectionString = "ComputerShop") :base(connectionString)
+        public ShopContext() :base("ComputerShopConnection")
         {
         }
 
@@ -33,9 +34,13 @@ namespace MakeComputerShop.Dal
 
 
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        //}
+        public static ShopContext Create()
         {
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            return new ShopContext();
         }
 
     }

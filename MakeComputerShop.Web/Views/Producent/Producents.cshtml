@@ -17,23 +17,19 @@
     {
         <table class="table table-bordered table-responsive">
             <thead>
-            <tr>
-                <td>Name</td>
-            </tr>
+                <tr>
+                    <td>Name</td>
+                </tr>
             </thead>
             <tbody>
-            @foreach (var producent in Model)
-            {
-                <tr>
-                    <td>@Html.ActionLink(producent.Name,"Producent","Producent",new {id = producent.Id},null)</td>
-                </tr>
-            }           
+                @foreach (var producent in Model)
+                {
+                    <tr>
+                        <td>@Html.ActionLink(producent.Name, "Producent", "Producent", new { id = producent.Id }, null)</td>
+                    </tr>
+                }
             </tbody>
         </table>
     }
 
 </div>
-
-
-
-
