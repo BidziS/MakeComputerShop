@@ -106,6 +106,7 @@
     <Compile Include="Models\ProcesorDb.cs" />
     <Compile Include="Models\ProducentDb.cs" />
     <Compile Include="Models\RamDb.cs" />
+    <Compile Include="Models\ShopCardListDb.cs" />
     <Compile Include="Models\SoundCardDb.cs" />
     <Compile Include="Models\UserDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -120,11 +121,13 @@
     <Compile Include="Repositories\impl\PowerSupplyRepository.cs" />
     <Compile Include="Repositories\impl\ProducentRepository.cs" />
     <Compile Include="Repositories\impl\RamRepository.cs" />
+    <Compile Include="Repositories\impl\UserRepository.cs" />
     <Compile Include="Repositories\INetworkCardRepository.cs" />
     <Compile Include="Repositories\IPowerSupplyRepository.cs" />
     <Compile Include="Repositories\IProducentRepository.cs" />
     <Compile Include="Repositories\IRamRepository.cs" />
     <Compile Include="Repositories\ISoundCardRepository.cs" />
+    <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="ShopContext.cs" />
   </ItemGroup>
   <ItemGroup>

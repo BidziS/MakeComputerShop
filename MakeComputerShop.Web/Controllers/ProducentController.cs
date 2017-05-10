@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MakeComputerShop.Bll.Services;
+using MakeComputerShop.Bll.Dtos;
 
 namespace MakeComputerShop.Web.Controllers
 {

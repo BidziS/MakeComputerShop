@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace MakeComputerShop.Dal.Models
 {
-    public class UserDb
+    public class ShopCardListDb
     {
         public int Id { get; set; }
 
-        public string Email { get; set; }
+        public int UserId { get; set; }
 
+        List<BaseDb> shopCardList = new List<BaseDb>();
     }
-
 }

@@ -31,6 +31,9 @@ namespace MakeComputerShop.Bll
                 cfg.CreateMap<RamDto, RamDb>();
                 cfg.CreateMap<RamDb, RamDto>();
 
+                cfg.CreateMap<UserDto, UserDb>();
+                cfg.CreateMap<UserDb, UserDto>();
+
             });
         }
     }
