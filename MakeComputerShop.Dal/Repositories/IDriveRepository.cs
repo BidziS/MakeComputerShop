@@ -14,7 +14,7 @@ namespace MakeComputerShop.Dal.Repositories
         DriveDb GetDriveById(int driveId);
         void InsertDrive(DriveDb drive);
         void DeleteDrive(int driveId);
-        void UpdateCrive(DriveDb drive);
+        void UpdateDrive(DriveDb drive);
         void Save();
 
     }

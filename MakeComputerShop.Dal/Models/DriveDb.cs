@@ -20,11 +20,12 @@ namespace MakeComputerShop.Dal.Models
 
         public string Interface { get; set; }
 
-        public enum DriverType
-        {
-            Cd,
-            Dvd,
-            Bluray
-        }
+        
+    }
+    public enum DriverType
+    {
+        Cd,
+        Dvd,
+        Bluray
     }
 }

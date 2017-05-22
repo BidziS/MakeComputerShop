@@ -30,6 +30,18 @@ namespace MakeComputerShop.Bll
 
                 cfg.CreateMap<RamDto, RamDb>();
                 cfg.CreateMap<RamDb, RamDto>();
+
+                cfg.CreateMap<DriveDto,DriveDb>();
+                cfg.CreateMap<DriveDb, DriveDto>();
+
+                cfg.CreateMap<GraphicCardDto, GraphicsCardDb>();
+                cfg.CreateMap<GraphicsCardDb, GraphicCardDto>();
+
+                cfg.CreateMap<NetworkCardDto, NetworkCardDb>();
+                cfg.CreateMap<NetworkCardDb, NetworkCardDto>();
+
+                cfg.CreateMap<SoundCardDto, SoundCardDb>();
+                cfg.CreateMap<SoundCardDb, SoundCardDto>();
             });
         }
     }

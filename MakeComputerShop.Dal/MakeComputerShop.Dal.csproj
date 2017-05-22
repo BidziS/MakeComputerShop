@@ -88,6 +88,14 @@
     <Compile Include="Migrations\201705081432279_after merge migration.Designer.cs">
       <DependentUpon>201705081432279_after merge migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705091344539_fdfd.cs" />
+    <Compile Include="Migrations\201705091344539_fdfd.Designer.cs">
+      <DependentUpon>201705091344539_fdfd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705091753276_gfdsg.cs" />
+    <Compile Include="Migrations\201705091753276_gfdsg.Designer.cs">
+      <DependentUpon>201705091753276_gfdsg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseDb.cs" />
     <Compile Include="Models\ComputerCasingDb.cs" />
@@ -157,6 +165,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705081432279_after merge migration.resx">
       <DependentUpon>201705081432279_after merge migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705091344539_fdfd.resx">
+      <DependentUpon>201705091344539_fdfd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705091753276_gfdsg.resx">
+      <DependentUpon>201705091753276_gfdsg.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

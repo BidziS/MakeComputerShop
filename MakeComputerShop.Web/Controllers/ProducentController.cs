@@ -16,6 +16,11 @@ namespace MakeComputerShop.Web.Controllers
         {
             this.iProducentService = iProducentService;
         }
+
+        public ProducentController()
+        {
+        }
+
         // GET: Producent
         public ActionResult Producents()
         {
