@@ -17,6 +17,8 @@ namespace MakeComputerShop.Dal
         {
         }
 
+        //public DbSet<BaseDb> BaseModel { get; set; }
+
         public DbSet<UserDb> Users { get; set; }
         public DbSet<MotherboardDb> Motherboards { get; set; }
         public DbSet<ProcesorDb> Procesors { get; set; }
@@ -28,9 +30,11 @@ namespace MakeComputerShop.Dal
         public DbSet<HardDriveDb> HardDrives { get; set; }
         public DbSet<PowerSupplyDb> PowerSupplies { get; set; }
         public DbSet<DriveDb> Drives { get ; set; }
-        public DbSet<GraphicsCardDb> GraphicCards {get; set; }
         public DbSet<NetworkCardDb> NetworkCards {get; set; }
         public DbSet<SoundCardDb> SoundCards {get; set; }
+        public DbSet<GraphicsCardDb> GraphicsCards { get; set; }
+        public DbSet<ComputerDb> Computers { get; set; }
+
 
 
 

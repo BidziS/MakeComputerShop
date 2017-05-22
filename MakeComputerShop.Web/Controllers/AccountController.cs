@@ -22,8 +22,9 @@ namespace MakeComputerShop.Web.Controllers
         private ApplicationUserManager _userManager;
         IGenericService<UserDto> iUserService;
 
-        public AccountController()
+        public AccountController(IGenericService<UserDto> iUserService)
         {
+            this.iUserService = iUserService;
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager, IGenericService<UserDto> iUserService)
@@ -175,6 +176,7 @@ namespace MakeComputerShop.Web.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     iUserService.InsertItem(new UserDto { Email = user.Email });
+
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);

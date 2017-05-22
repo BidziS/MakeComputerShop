@@ -8,71 +8,44 @@ using MakeComputerShop.Dal.Models;
 
 namespace MakeComputerShop.Dal.Repositories.impl
 {
-    public class SoundCardReposirtory : ISoundCardRepository
+    public class SoundCardReposirtory : IGenericRepository<SoundCardDb>
     {
         private ShopContext context;
-
-        private ISoundCardRepository iSoundCardRepository;
 
         public SoundCardReposirtory(ShopContext context)
         {
             this.context = context;
         }
 
-        public IEnumerable<SoundCardDb> GetSoundCard()
+        public IEnumerable<SoundCardDb> GetAll()
         {
             return context.SoundCards.ToList();
         }
 
-        public IEnumerable<SoundCardDb> GetSoundCardByProducentId(int producentId)
+        public SoundCardDb GetItemById(int itemId)
         {
-            return context.NetworkCards.Include(m => m.Producent).Where(m => m.ProducentId == producentId);
+            return context.SoundCards.Find(itemId);
         }
 
-        public SoundCardDb GetSoundCardById(int soundCardId)
+        public void InsertItem(SoundCardDb item)
         {
-            return context.NetworkCards.Find(soundCardId);
+            context.SoundCards.Add(item);
         }
 
-        public void InsertSoundCard(SoundCardDb soundCard)
+        public void DeleteItem(int itemId)
         {
-            context.Drives.Add(soundCard);
-        }
-
-        public void DeleteSoundCard(int soundCardId)
-        {
-            SoundCardDb soundCard = context.SoundCards.Find(soundCardId);
+            SoundCardDb soundCard = GetItemById(itemId);
             if (soundCard != null) context.SoundCards.Remove(soundCard);
         }
 
-        public void UpdateSoundCard(SoundCardDb soundCard)
+        public void UpdateItem(SoundCardDb item)
         {
-            context.Entry(soundCard).State = EntityState.Modified;
+            context.Entry(item).State = EntityState.Modified;
         }
 
         public void Save()
         {
             context.SaveChanges();
-        }
-
-        private bool disposed = false;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    context.Dispose();
-                }
-            }
-            this.disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
         }
     }
 }

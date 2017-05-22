@@ -8,7 +8,7 @@ using System.Data.Entity;
 
 namespace MakeComputerShop.Dal.Repositories.impl
 {
-    public class HardDriveRepository : IHardDriveRepository
+    public class HardDriveRepository : IGenericRepository<HardDriveDb>
     {
         private ShopContext context;
 
@@ -17,40 +17,35 @@ namespace MakeComputerShop.Dal.Repositories.impl
             this.context = context;
         }
 
-        public void DeleteHardDrive(int hardDriveId)
-        {
-            HardDriveDb hardDrive = GetHardDriveById(hardDriveId);
-            if (hardDrive != null) context.HardDrives.Remove(hardDrive);
-        }
-
-        public HardDriveDb GetHardDriveById(int hardDriveId)
-        {
-            return context.HardDrives.Find(hardDriveId);
-        }
-
-        public IEnumerable<HardDriveDb> GetHardDrives()
+        public IEnumerable<HardDriveDb> GetAll()
         {
             return context.HardDrives.ToList();
         }
 
-        public IEnumerable<HardDriveDb> GetHardDrivesByProducentId(int producentId)
+        public HardDriveDb GetItemById(int itemId)
         {
-            return context.HardDrives.Include(m => m.Producent).Where(m => m.ProducentId == producentId);
+            return context.HardDrives.Find(itemId);
         }
 
-        public void InsertHardDrive(HardDriveDb hardDrive)
+        public void InsertItem(HardDriveDb item)
         {
-            context.HardDrives.Add(hardDrive);
+            context.HardDrives.Add(item);
+        }
+
+        public void DeleteItem(int itemId)
+        {
+            HardDriveDb hardDrive = GetItemById(itemId);
+            if (hardDrive != null) context.HardDrives.Remove(hardDrive);
+        }
+
+        public void UpdateItem(HardDriveDb item)
+        {
+            context.Entry(item).State = EntityState.Modified;
         }
 
         public void Save()
         {
             context.SaveChanges();
-        }
-
-        public void UpdateHardDrive(HardDriveDb hardDrive)
-        {
-            context.Entry(hardDrive).State = EntityState.Modified;
         }
     }
 }

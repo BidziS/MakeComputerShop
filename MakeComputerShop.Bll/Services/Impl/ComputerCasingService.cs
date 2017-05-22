@@ -10,45 +10,41 @@ using MakeComputerShop.Dal.Models;
 
 namespace MakeComputerShop.Bll.Services.Impl
 {
-    public class ComputerCasingService : IComputerCasingService
+    public class ComputerCasingService : IGenericService<ComputerCasingDto>
     {
-        private IComputerCasingRepository iComputerCasingRepository;
+        private IGenericRepository<ComputerCasingDb> iComputerCasingRepository;
 
-        public ComputerCasingService(IComputerCasingRepository iComputerCasingRepository)
+        public ComputerCasingService(IGenericRepository<ComputerCasingDb> iComputerCasingRepository)
         {
             this.iComputerCasingRepository = iComputerCasingRepository;
         }
 
-        public void DeleteComputerCasing(int computerCasingId)
+        public void DeleteItem(int computerCasingId)
         {
-            iComputerCasingRepository.DeleteComputerCasing(computerCasingId);
+            iComputerCasingRepository.DeleteItem(computerCasingId);
             iComputerCasingRepository.Save();
         }
 
-        public ComputerCasingDto GetComputerCasingById(int computerCasingId)
+        public ComputerCasingDto GetItemById(int computerCasingId)
         {
-            return Mapper.Map<ComputerCasingDb, ComputerCasingDto>(iComputerCasingRepository.GetComputerCasingById(computerCasingId));
+            return Mapper.Map<ComputerCasingDb, ComputerCasingDto>(iComputerCasingRepository.GetItemById(computerCasingId));
         }
 
-        public IEnumerable<ComputerCasingDto> GetComputerCasings()
+        public IEnumerable<ComputerCasingDto> GetAll()
         {
-            return Mapper.Map<IEnumerable<ComputerCasingDb>, IEnumerable<ComputerCasingDto>>(iComputerCasingRepository.GetComputerCasings());
+            return Mapper.Map<IEnumerable<ComputerCasingDb>, IEnumerable<ComputerCasingDto>>(iComputerCasingRepository.GetAll());
         }
 
-        public IEnumerable<ComputerCasingDto> GetComputerCasingsByProducentId(int producentId)
-        {
-            throw new NotImplementedException();
-        }
 
-        public void InsertComputerCasing(ComputerCasingDto computerCasing)
+        public void InsertItem(ComputerCasingDto computerCasing)
         {
-            iComputerCasingRepository.InsertComputerCasing(Mapper.Map<ComputerCasingDto, ComputerCasingDb>(computerCasing));
+            iComputerCasingRepository.InsertItem(Mapper.Map<ComputerCasingDto, ComputerCasingDb>(computerCasing));
             iComputerCasingRepository.Save();
         }
 
-        public void UpdateComputerCasing(ComputerCasingDto computerCasing)
+        public void UpdateItem(ComputerCasingDto computerCasing)
         {
-            iComputerCasingRepository.UpdateComputerCasing(Mapper.Map<ComputerCasingDto, ComputerCasingDb>(computerCasing));
+            iComputerCasingRepository.UpdateItem(Mapper.Map<ComputerCasingDto, ComputerCasingDb>(computerCasing));
             iComputerCasingRepository.Save();
         }
     }

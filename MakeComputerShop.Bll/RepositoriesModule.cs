@@ -22,6 +22,7 @@ namespace MakeComputerShop.Bll
                 .AsImplementedInterfaces();
 
             builder.RegisterType<ShopContext>().As<ShopContext>();
+
         }
     }
 }

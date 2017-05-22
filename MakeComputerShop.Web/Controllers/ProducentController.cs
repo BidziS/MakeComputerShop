@@ -5,14 +5,15 @@ using System.Web;
 using System.Web.Mvc;
 using MakeComputerShop.Bll.Services;
 using MakeComputerShop.Bll.Dtos;
+using MakeComputerShop.Web.Models;
 
 namespace MakeComputerShop.Web.Controllers
 {
     public class ProducentController : Controller
     {
-        private IProducentService iProducentService;
+        private IGenericService<ProducentDto> iProducentService;
 
-        public ProducentController(IProducentService iProducentService)
+        public ProducentController(IGenericService<ProducentDto> iProducentService)
         {
             this.iProducentService = iProducentService;
         }
@@ -20,13 +21,14 @@ namespace MakeComputerShop.Web.Controllers
         [Authorize]
         public ActionResult Producents()
         {
-            var producents = iProducentService.GetProducents();
-            return View(producents);
+            var producents = iProducentService.GetAll();
+
+            return View();
         }
         [Authorize]
         public ActionResult Producent(int id)
         {
-            var producent = iProducentService.GetProducentById(id);
+            var producent = iProducentService.GetItemById(id);
             return View(producent);
         }
     }

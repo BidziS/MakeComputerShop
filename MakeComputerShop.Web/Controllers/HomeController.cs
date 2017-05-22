@@ -5,24 +5,22 @@ using System.Web;
 using System.Web.Mvc;
 using MakeComputerShop.Bll.Dtos;
 using MakeComputerShop.Bll.Services;
+using MakeComputerShop.Bll.Services.Impl;
+using MakeComputerShop.Web.Models;
 
 namespace MakeComputerShop.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private IProducentService iProducentService;
+        private IGenericService<ProducentDto> iProducentService;
 
-        public HomeController(IProducentService iProducentService)
+        public HomeController(IGenericService<ProducentDto> iProducentService)
         {
             this.iProducentService = iProducentService;
         }
 
         public ActionResult Index()
         {
-            ProducentDto producent = iProducentService.GetProducentById(1);
-
-            ViewBag.Title = "Home Page " + producent.Name;
-
             return View();
         }
 

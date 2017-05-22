@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MakeComputerShop.Bll.Dtos.ComputerDto>
+@{
+    ViewBag.Title = "All";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detailss</h2>
+
+<div class="container">
+    @if (!Model.Any())
+    {
+        <text>
+            Nie ma żadnych producentów w bazie
+        </text>
+    }
+    else
+    {
+        <table class="table table-bordered table-responsive">
+            <thead>
+            <tr>
+                <td>Name</td>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var computer in Model)
+            {
+                double price = 0;
+                price += computer.ComputerCasing.Price;
+                if (computer.Drive != null){price += computer.Drive.Price;}
+
+                <tr>
+                    <td>@Html.ActionLink(@computer.Descripton, "Details", "Computer", new { id = computer.Id }, null)</td>
+                    <td>@price </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+
+</div>

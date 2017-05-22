@@ -92,9 +92,38 @@
     <Compile Include="Migrations\201705092143115_SeedUsers.Designer.cs">
       <DependentUpon>201705092143115_SeedUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705101817243_change user model.cs" />
+    <Compile Include="Migrations\201705101817243_change user model.Designer.cs">
+      <DependentUpon>201705101817243_change user model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705101912524_add shopcard and shopcarditem models.cs" />
+    <Compile Include="Migrations\201705101912524_add shopcard and shopcarditem models.Designer.cs">
+      <DependentUpon>201705101912524_add shopcard and shopcarditem models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705111658562_change shop card model.cs" />
+    <Compile Include="Migrations\201705111658562_change shop card model.Designer.cs">
+      <DependentUpon>201705111658562_change shop card model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705111740195_change shop card item model.cs" />
+    <Compile Include="Migrations\201705111740195_change shop card item model.Designer.cs">
+      <DependentUpon>201705111740195_change shop card item model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705221124376_change models.cs" />
+    <Compile Include="Migrations\201705221124376_change models.Designer.cs">
+      <DependentUpon>201705221124376_change models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705221628078_add computer model.cs" />
+    <Compile Include="Migrations\201705221628078_add computer model.Designer.cs">
+      <DependentUpon>201705221628078_add computer model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705221903198_modify computer and user model.cs" />
+    <Compile Include="Migrations\201705221903198_modify computer and user model.Designer.cs">
+      <DependentUpon>201705221903198_modify computer and user model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseDb.cs" />
     <Compile Include="Models\ComputerCasingDb.cs" />
+    <Compile Include="Models\ComputerDb.cs" />
     <Compile Include="Models\DriveDb.cs" />
     <Compile Include="Models\GraphicsCardDb.cs" />
     <Compile Include="Models\HardDriveDb.cs" />
@@ -106,28 +135,22 @@
     <Compile Include="Models\ProcesorDb.cs" />
     <Compile Include="Models\ProducentDb.cs" />
     <Compile Include="Models\RamDb.cs" />
-    <Compile Include="Models\ShopCardListDb.cs" />
     <Compile Include="Models\SoundCardDb.cs" />
     <Compile Include="Models\UserDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\IComputerCasingRepository.cs" />
-    <Compile Include="Repositories\IDriveRepository.cs" />
-    <Compile Include="Repositories\IGraphicsCardRepository.cs" />
-    <Compile Include="Repositories\IHardDriveRepository.cs" />
-    <Compile Include="Repositories\IMotherboardRepository.cs" />
     <Compile Include="Repositories\impl\ComputerCasingRepository.cs" />
+    <Compile Include="Repositories\impl\ComputerRepository.cs" />
+    <Compile Include="Repositories\impl\DriveRepository.cs" />
+    <Compile Include="Repositories\impl\GraphicsCardRepository.cs" />
     <Compile Include="Repositories\impl\HardDriveRepository.cs" />
     <Compile Include="Repositories\impl\MotherboardRepository.cs" />
+    <Compile Include="Repositories\impl\NetworkCardRepository.cs" />
     <Compile Include="Repositories\impl\PowerSupplyRepository.cs" />
     <Compile Include="Repositories\impl\ProducentRepository.cs" />
     <Compile Include="Repositories\impl\RamRepository.cs" />
+    <Compile Include="Repositories\impl\SoundCardRepository.cs" />
     <Compile Include="Repositories\impl\UserRepository.cs" />
-    <Compile Include="Repositories\INetworkCardRepository.cs" />
-    <Compile Include="Repositories\IPowerSupplyRepository.cs" />
-    <Compile Include="Repositories\IProducentRepository.cs" />
-    <Compile Include="Repositories\IRamRepository.cs" />
-    <Compile Include="Repositories\ISoundCardRepository.cs" />
-    <Compile Include="Repositories\IUserRepository.cs" />
+    <Compile Include="Repositories\IGenericRepository.cs" />
     <Compile Include="ShopContext.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +163,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705092143115_SeedUsers.resx">
       <DependentUpon>201705092143115_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705101817243_change user model.resx">
+      <DependentUpon>201705101817243_change user model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705101912524_add shopcard and shopcarditem models.resx">
+      <DependentUpon>201705101912524_add shopcard and shopcarditem models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705111658562_change shop card model.resx">
+      <DependentUpon>201705111658562_change shop card model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705111740195_change shop card item model.resx">
+      <DependentUpon>201705111740195_change shop card item model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705221124376_change models.resx">
+      <DependentUpon>201705221124376_change models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705221628078_add computer model.resx">
+      <DependentUpon>201705221628078_add computer model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705221903198_modify computer and user model.resx">
+      <DependentUpon>201705221903198_modify computer and user model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

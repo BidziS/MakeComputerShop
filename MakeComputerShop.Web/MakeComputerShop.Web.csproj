@@ -197,6 +197,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ComputerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProducentController.cs" />
@@ -211,10 +212,15 @@
     <Compile Include="Migrations\201705092143303_Seed-Users.Designer.cs">
       <DependentUpon>201705092143303_Seed-Users.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705101815268_change model.cs" />
+    <Compile Include="Migrations\201705101815268_change model.Designer.cs">
+      <DependentUpon>201705101815268_change model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -293,6 +299,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Producent\Producents.cshtml" />
     <Content Include="Views\Producent\Producent.cshtml" />
+    <Content Include="Views\Computer\All.cshtml" />
+    <Content Include="Views\Computer\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -306,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705092143303_Seed-Users.resx">
       <DependentUpon>201705092143303_Seed-Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705101815268_change model.resx">
+      <DependentUpon>201705101815268_change model.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

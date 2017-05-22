@@ -10,40 +10,40 @@ using MakeComputerShop.Dal.Repositories;
 
 namespace MakeComputerShop.Bll.Services.Impl
 {
-    public class RamService:IRamService
+    public class RamService:IGenericService<RamDto>
     {
-        private IRamRepository iRamRepository;
+        private IGenericRepository<RamDb> iRamRepository;
 
-        public RamService(IRamRepository iRamRepository)
+        public RamService(IGenericRepository<RamDb> iRamRepository)
         {
             this.iRamRepository = iRamRepository;
         }
 
-        public IEnumerable<RamDto> GetRams()
+        public IEnumerable<RamDto> GetAll()
         {
-            return Mapper.Map<IEnumerable<RamDb>, IEnumerable<RamDto>>(iRamRepository.GetRams());
+            return Mapper.Map<IEnumerable<RamDb>, IEnumerable<RamDto>>(iRamRepository.GetAll());
         }
 
-        public RamDto GetRamById(int ramId)
+        public RamDto GetItemById(int ramId)
         {
-            return Mapper.Map<RamDb, RamDto>(iRamRepository.GetRamById(ramId));
+            return Mapper.Map<RamDb, RamDto>(iRamRepository.GetItemById(ramId));
         }
 
-        public void InsertRam(RamDto ram)
+        public void InsertItem(RamDto ram)
         {
-            iRamRepository.InsertRam(Mapper.Map<RamDto,RamDb>(ram));
+            iRamRepository.InsertItem(Mapper.Map<RamDto,RamDb>(ram));
             iRamRepository.Save();
         }
 
-        public void DeleteRam(int ramId)
+        public void DeleteItem(int ramId)
         {
-            iRamRepository.DeleteRam(ramId);
+            iRamRepository.DeleteItem(ramId);
             iRamRepository.Save();
         }
 
-        public void UpdateRam(RamDto ram)
+        public void UpdateItem(RamDto ram)
         {
-            iRamRepository.UpdateRam(Mapper.Map<RamDto, RamDb>(ram));
+            iRamRepository.UpdateItem(Mapper.Map<RamDto, RamDb>(ram));
             iRamRepository.Save();
         }
     }

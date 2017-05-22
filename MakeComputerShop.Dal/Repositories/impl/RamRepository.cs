@@ -8,7 +8,7 @@ using MakeComputerShop.Dal.Models;
 
 namespace MakeComputerShop.Dal.Repositories.impl
 {
-    public class RamRepository:IRamRepository
+    public class RamRepository:IGenericRepository<RamDb>
     {
         private ShopContext context;
 
@@ -17,28 +17,28 @@ namespace MakeComputerShop.Dal.Repositories.impl
             this.context = context;
         }
 
-        public IEnumerable<RamDb> GetRams()
+        public IEnumerable<RamDb> GetAll()
         {
             return context.Rams.ToList();
         }
 
-        public RamDb GetRamById(int ramId)
+        public RamDb GetItemById(int ramId)
         {
             return context.Rams.Find(ramId);
         }
 
-        public void InsertRam(RamDb ram)
+        public void InsertItem(RamDb ram)
         {
             context.Rams.Add(ram);
         }
 
-        public void DeleteRam(int ramId)
+        public void DeleteItem(int ramId)
         {
-            RamDb ram = GetRamById(ramId);
+            RamDb ram = GetItemById(ramId);
             if (ram != null) context.Rams.Remove(ram);
         }
 
-        public void UpdateRam(RamDb ram)
+        public void UpdateItem(RamDb ram)
         {
             context.Entry(ram).State = EntityState.Modified;
         }

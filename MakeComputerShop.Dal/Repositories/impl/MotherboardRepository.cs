@@ -8,81 +8,44 @@ using MakeComputerShop.Dal.Models;
 
 namespace MakeComputerShop.Dal.Repositories.impl
 {
-    public class MotherboardRepository:IMotherboardRepository
+    public class MotherboardRepository:IGenericRepository<MotherboardDb>
     {
         private ShopContext context;
-
-        private IProducentRepository iProducentRepository;
 
         public MotherboardRepository(ShopContext context)
         {
             this.context = context;
         }
 
-        public IEnumerable<MotherboardDb> GetMotherboards()
+        public IEnumerable<MotherboardDb> GetAll()
         {
             return context.Motherboards.ToList();
         }
 
-        public IEnumerable<MotherboardDb> GetMotherboardsByProducentId(int producentId)
+        public MotherboardDb GetItemById(int itemId)
         {
-            return context.Motherboards.Include(m => m.Producent).Where(m => m.ProducentId == producentId);
+            return context.Motherboards.Include(m => m.Producent).SingleOrDefault(m => m.Id == itemId);
         }
 
-        public IEnumerable<MotherboardDb> GetMotherboardsBySocket(int socketId)
+        public void InsertItem(MotherboardDb item)
         {
-            return context.Motherboards.Include(m => m.Socket).Where(m => m.SocketId == socketId);
+            context.Motherboards.Add(item);
         }
 
-        public IEnumerable<MotherboardDb> GetMotherboardsByChipset(int chipsetId)
+        public void DeleteItem(int itemId)
         {
-            return context.Motherboards.Include(m => m.Chipset).Where(m => m.ChipsetId == chipsetId);
-        }
-
-        public MotherboardDb GetMotherboardById(int motherboardId)
-        {
-            return context.Motherboards.Find(motherboardId);
-        }
-
-        public void InsertMotherboard(MotherboardDb motherboard)
-        {
-            context.Motherboards.Add(motherboard);
-        }
-
-        public void DeleteMotherboard(int motherboardId)
-        {
-            MotherboardDb motherboard = context.Motherboards.Find(motherboardId);
+            MotherboardDb motherboard = context.Motherboards.Find(itemId);
             if (motherboard != null) context.Motherboards.Remove(motherboard);
         }
 
-        public void UpdateMotherboard(MotherboardDb motherboard)
+        public void UpdateItem(MotherboardDb item)
         {
-            context.Entry(motherboard).State = EntityState.Modified;
+            context.Entry(item).State = EntityState.Modified;
         }
 
         public void Save()
         {
             context.SaveChanges();
-        }
-
-        private bool disposed = false;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    context.Dispose();
-                }
-            }
-            this.disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
+        }       
     }
 }

@@ -8,71 +8,45 @@ using MakeComputerShop.Dal.Models;
 
 namespace MakeComputerShop.Dal.Repositories.impl
 {
-    public class DriveRepository : IDriveRepository
+    public class DriveRepository : IGenericRepository<DriveDb>
     {
         private ShopContext context;
-
-        private IDriveRepository iDriveRepository;
 
         public DriveRepository(ShopContext context)
         {
             this.context = context;
         }
 
-        public IEnumerable<DriveDb> GetDrives()
+        public IEnumerable<DriveDb> GetAll()
         {
             return context.Drives.ToList();
         }
 
-        public IEnumerable<DriveDb> GetDrivesByProducentId(int producentId)
+        public DriveDb GetItemById(int itemId)
         {
-            return context.Drives.Include(m => m.Producent).Where(m => m.ProducentId == producentId);
+            return context.Drives.Find(itemId);
         }
 
-        public DriveDb GetDriveById(int driveId)
+        public void InsertItem(DriveDb item)
         {
-            return context.Drives.Find(driveId);
+            context.Drives.Add(item);
         }
 
-        public void InsertDrive(DriveDb drive)
+        public void DeleteItem(int itemId)
         {
-            context.Drives.Add(drive);
-        }
-
-        public void DeleteDrive(int driveId)
-        {
-            DriveDb drive = context.Drives.Find(driveId);
+            DriveDb drive = context.Drives.Find(itemId);
             if (drive != null) context.Drives.Remove(drive);
         }
 
-        public void UpdateDrive(DriveDb drive)
+        public void UpdateItem(DriveDb item)
         {
-            context.Entry(drive).State = EntityState.Modified;
+            context.Entry(item).State = EntityState.Modified;
         }
 
         public void Save()
         {
             context.SaveChanges();
         }
-
-        private bool disposed = false;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    context.Dispose();
-                }
-            }
-            this.disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
+        
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MakeComputerShop.Dal.Repositories
 {
-    public interface IGenericRepository<T>
+    public interface IGenericRepository<T> 
     {
         IEnumerable<T> GetAll();
         T GetItemById(int itemId);

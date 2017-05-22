@@ -8,76 +8,46 @@ using MakeComputerShop.Dal.Models;
 
 namespace MakeComputerShop.Dal.Repositories.impl
 {
-    public class GraphicsCardRepository : IGraphicsCardRepository
+    public class GraphicsCardRepository : IGenericRepository<GraphicsCardDb>
     {
         private ShopContext context;
 
-        private IGraphicsCardRepository iGraphicsCardRepository;
 
         public GraphicsCardRepository(ShopContext context)
         {
             this.context = context;
         }
 
-        public IEnumerable<GraphicsCardDb> GetGraphicsCard()
+
+        public IEnumerable<GraphicsCardDb> GetAll()
         {
-            return context.GraphicCards.ToList();
+            return context.GraphicsCards.ToList();
         }
 
-        public IEnumerable<GraphicsCardDb> GetGraphicsCardByProducentId(int producentId)
+        public GraphicsCardDb GetItemById(int itemId)
         {
-            return context.GraphicCards.Include(m => m.Producent).Where(m => m.ProducentId == producentId);
+            return context.GraphicsCards.Find(itemId);
         }
 
-        public IEnumerable<GraphicsCardDb> GetGraphicCardByChipset(int chipsetId)
+        public void InsertItem(GraphicsCardDb item)
         {
-            return context.GraphicCard.Include(m => m.Chipset).Where(m => m.ChipsetId == chipsetId);
+            context.GraphicsCards.Add(item);
         }
 
-        public GraphicsCardDb GetGetGraphicCardById(int graphicCardId)
+        public void DeleteItem(int itemId)
         {
-            return context.GraphicCards.Find(driveId);
+            GraphicsCardDb graphicsCard = GetItemById(itemId);
+            if (graphicsCard != null) context.GraphicsCards.Remove(graphicsCard);
         }
 
-        public void InsertGraphicCard(GraphicsCardDb graphicCard)
+        public void UpdateItem(GraphicsCardDb item)
         {
-            context.GraphicCards.Add(graphicCard);
-        }
-
-        public void DeleteGraphicCard(int graphicCardId)
-        {
-            GraphicsCardDb graphicCard = context.graphicCards.Find(graphicCardId);
-            if (graphicCard != null) context.graphicCards.Remove(graphicCard);
-        }
-
-        public void UpdateGraphicCard(GraphicsCardDb graphicCard)
-        {
-            context.Entry(graphicCard).State = EntityState.Modified;
+            context.Entry(item).State = EntityState.Modified;
         }
 
         public void Save()
         {
             context.SaveChanges();
-        }
-
-        private bool disposed = false;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    context.Dispose();
-                }
-            }
-            this.disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
         }
     }
 }
