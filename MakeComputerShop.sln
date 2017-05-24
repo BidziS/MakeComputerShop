@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakeComputerShop.Web", "Mak
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakeComputerShop.Tests", "MakeComputerShop.Tests\MakeComputerShop.Tests.csproj", "{DC8BFF54-E85F-4112-850A-4B7204EE0542}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakeComputerShop.WebApi", "MakeComputerShop.WebApi\MakeComputerShop.WebApi.csproj", "{A65730A8-997B-4F3A-8740-22AF672C5C7D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{DC8BFF54-E85F-4112-850A-4B7204EE0542}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC8BFF54-E85F-4112-850A-4B7204EE0542}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC8BFF54-E85F-4112-850A-4B7204EE0542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A65730A8-997B-4F3A-8740-22AF672C5C7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A65730A8-997B-4F3A-8740-22AF672C5C7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A65730A8-997B-4F3A-8740-22AF672C5C7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A65730A8-997B-4F3A-8740-22AF672C5C7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

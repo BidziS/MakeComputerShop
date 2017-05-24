@@ -1,19 +1,34 @@
 ﻿    <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
+            
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <a>
+                <img class="image_nav" src="http://i.dailymail.co.uk/i/pix/2014/05/24/article-0-1CBD4BEF00000578-232_308x425.jpg" />
+                @Html.ActionLink("cebule.net", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </a>
+            
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
                 <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
-                </ul>
-            </div>
+                <li>@Html.ActionLink("Obudowy", "ComputerCasings", "ComputerCasing", new{area  = ""}, null)</li>
+                <li>@Html.ActionLink("Dyski", "HardDrives", "HardDrive", new{area  = ""}, null)</li>
+                <li>@Html.ActionLink("Producenci", "Producents", "Producent", new{area  = ""}, null)</li>
+            </ul>
+            <ul id="login_refister_nav" class="nav navbar-nav">
+                <li>@Html.ActionLink("Zaloguj", "Index", "Home", new { area = "" }, null)</li>
+                <li>@Html.ActionLink("Zarejestruj", "Index", "Help", new { area = "" }, new { @class = "btn btn-success" })</li>
+            </ul>
+        </div>
+        <div class="nav">
+            
+        </div>
         </div>
     </div>
 

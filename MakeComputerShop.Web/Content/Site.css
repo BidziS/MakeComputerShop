@@ -15,3 +15,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.image_nav {
+    float: left;
+    width: 30px;
+}
+#login_refister_nav {
+    float: right;
+}

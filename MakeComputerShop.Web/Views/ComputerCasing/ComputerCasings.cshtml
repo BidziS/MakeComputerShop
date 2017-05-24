@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MakeComputerShop.Bll.Dtos.ComputerCasingDto>
+@{
+    ViewBag.Title = "ComputerCasings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Casings</h2>
+
+<div class="container">
+    @if (!Model.Any())
+    {
+        <text>
+            Nie ma żadnych obudów w bazie
+        </text>
+    }
+    else
+    {
+        <table class="table table-bordered table-responsive">
+            <thead>
+            <tr>
+                <td>Name</td>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var casing in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(casing.Name,"Casing","Casing",new {id = casing.Id},null)</td>
+                </tr>
+            }           
+            </tbody>
+        </table>
+    }
+
+</div>
+
+
+
+

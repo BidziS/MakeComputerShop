@@ -20,5 +20,7 @@ namespace MakeComputerShop.Bll.Dtos
         public HardDriveType HardDriveType { get; set; }
         
         public double WidthFormat { get; set; }
+
+       
     }
 }

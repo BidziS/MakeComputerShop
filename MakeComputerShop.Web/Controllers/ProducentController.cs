@@ -16,17 +16,32 @@ namespace MakeComputerShop.Web.Controllers
         {
             this.iProducentService = iProducentService;
         }
+
+        public ProducentController()
+        {
+        }
+
         // GET: Producent
-        public ActionResult Producents()
+        /*public ActionResult Producents()
         {
             var producents = iProducentService.GetProducents();
             return View(producents);
         }
-
+        */
         public ActionResult Producent(int id)
         {
             var producent = iProducentService.GetProducentById(id);
             return View(producent);
         }
+        
+
+
+        ///  PDF : /////
+        public ActionResult Producents()
+        {
+            var pdf = iProducentService.GetProducents();
+            return new RazorPDF.PdfActionResult("Producents", pdf);
+        }
+        
     }
 }

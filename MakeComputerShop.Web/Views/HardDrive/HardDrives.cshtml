@@ -1,0 +1,39 @@
+﻿@model IEnumerable<MakeComputerShop.Bll.Dtos.HardDriveDto>
+@{
+    ViewBag.Title = "HardDrives";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>HardDrives</h2>
+
+<div class="container">
+    @if (!Model.Any())
+    {
+        <text>
+            Nie ma żadnych dysków w bazie
+        </text>
+    }
+    else
+    {
+        <table class="table table-bordered table-responsive">
+            <thead>
+            <tr>
+                <td>Name</td>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var hardDrive in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(hardDrive.Name,"HardDrive","HardDrive",new {id = hardDrive.Id},null)</td>
+                </tr>
+            }           
+            </tbody>
+        </table>
+    }
+
+</div>
+
+
+
+

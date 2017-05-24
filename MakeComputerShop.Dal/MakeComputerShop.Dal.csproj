@@ -36,6 +36,10 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="RazorPDF, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorPDF.1.0.0\lib\net45\RazorPDF.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -84,20 +88,46 @@
     <Compile Include="Migrations\201705021703376_change models.Designer.cs">
       <DependentUpon>201705021703376_change models.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705081432279_after merge migration.cs" />
+    <Compile Include="Migrations\201705081432279_after merge migration.Designer.cs">
+      <DependentUpon>201705081432279_after merge migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705091344539_fdfd.cs" />
+    <Compile Include="Migrations\201705091344539_fdfd.Designer.cs">
+      <DependentUpon>201705091344539_fdfd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705091753276_gfdsg.cs" />
+    <Compile Include="Migrations\201705091753276_gfdsg.Designer.cs">
+      <DependentUpon>201705091753276_gfdsg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705222109267_casing.cs" />
+    <Compile Include="Migrations\201705222109267_casing.Designer.cs">
+      <DependentUpon>201705222109267_casing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705222111234_new.cs" />
+    <Compile Include="Migrations\201705222111234_new.Designer.cs">
+      <DependentUpon>201705222111234_new.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseDb.cs" />
     <Compile Include="Models\ComputerCasingDb.cs" />
+    <Compile Include="Models\DriveDb.cs" />
+    <Compile Include="Models\GraphicsCardDb.cs" />
     <Compile Include="Models\HardDriveDb.cs" />
     <Compile Include="Models\MotherboardDb.cs" />
     <Compile Include="Models\MotherboardElements\ChipsetDb.cs" />
     <Compile Include="Models\MotherboardElements\SocketDb.cs" />
+    <Compile Include="Models\NetworkCardDb.cs" />
     <Compile Include="Models\PowerSupplyDb.cs" />
     <Compile Include="Models\ProcesorDb.cs" />
     <Compile Include="Models\ProducentDb.cs" />
     <Compile Include="Models\RamDb.cs" />
+    <Compile Include="Models\SoundCardDb.cs" />
     <Compile Include="Models\UserDb.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\IComputerCasingRepository.cs" />
+    <Compile Include="Repositories\IDriveRepository.cs" />
+    <Compile Include="Repositories\IGraphicsCardRepository.cs" />
     <Compile Include="Repositories\IHardDriveRepository.cs" />
     <Compile Include="Repositories\IMotherboardRepository.cs" />
     <Compile Include="Repositories\impl\ComputerCasingRepository.cs" />
@@ -106,11 +136,12 @@
     <Compile Include="Repositories\impl\PowerSupplyRepository.cs" />
     <Compile Include="Repositories\impl\ProducentRepository.cs" />
     <Compile Include="Repositories\impl\RamRepository.cs" />
+    <Compile Include="Repositories\INetworkCardRepository.cs" />
     <Compile Include="Repositories\IPowerSupplyRepository.cs" />
     <Compile Include="Repositories\IProducentRepository.cs" />
     <Compile Include="Repositories\IRamRepository.cs" />
+    <Compile Include="Repositories\ISoundCardRepository.cs" />
     <Compile Include="ShopContext.cs" />
-    <Compile Include="ShopInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -143,6 +174,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705021703376_change models.resx">
       <DependentUpon>201705021703376_change models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705081432279_after merge migration.resx">
+      <DependentUpon>201705081432279_after merge migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705091344539_fdfd.resx">
+      <DependentUpon>201705091344539_fdfd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705091753276_gfdsg.resx">
+      <DependentUpon>201705091753276_gfdsg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705222109267_casing.resx">
+      <DependentUpon>201705222109267_casing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705222111234_new.resx">
+      <DependentUpon>201705222111234_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
