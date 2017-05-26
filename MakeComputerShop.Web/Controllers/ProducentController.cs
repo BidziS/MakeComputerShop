@@ -29,6 +29,7 @@ namespace MakeComputerShop.Web.Controllers
         public ActionResult Producent(int id)
         {
             var producent = iProducentService.GetItemById(id);
+
             return View(producent);
         }
     }

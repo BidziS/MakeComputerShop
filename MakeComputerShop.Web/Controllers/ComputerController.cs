@@ -8,8 +8,10 @@ using MakeComputerShop.Bll.Services;
 
 namespace MakeComputerShop.Web.Controllers
 {
+    [Authorize]
     public class ComputerController : Controller
     {
+
         private IGenericService<ComputerDto> iComputerService;
 
         public ComputerController(IGenericService<ComputerDto> iComputerService)
@@ -20,6 +22,8 @@ namespace MakeComputerShop.Web.Controllers
         // GET: Details
         public ActionResult All()
         {
+            var user = System.Web.HttpContext.Current.User.Identity.Name;
+
             var computers = iComputerService.GetAll();
 
             return View(computers);

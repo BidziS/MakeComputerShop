@@ -200,7 +200,9 @@
     <Compile Include="Controllers\ComputerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProcessorController.cs" />
     <Compile Include="Controllers\ProducentController.cs" />
+    <Compile Include="Controllers\ShopCartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -225,6 +227,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -301,6 +304,11 @@
     <Content Include="Views\Producent\Producent.cshtml" />
     <Content Include="Views\Computer\All.cshtml" />
     <Content Include="Views\Computer\Details.cshtml" />
+    <Content Include="Views\Processor\All.cshtml" />
+    <Content Include="Views\Processor\Details.cshtml" />
+    <Content Include="Views\ShopCart\ShopCart.cshtml" />
+    <Content Include="Views\Shared\_ProcesorDetails.cshtml" />
+    <Content Include="Views\Shared\_ProcesorListRow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

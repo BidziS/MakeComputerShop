@@ -132,11 +132,13 @@
     <Compile Include="Services\Impl\MotherboardService.cs" />
     <Compile Include="Services\Impl\NetworkCardService.cs" />
     <Compile Include="Services\Impl\PowerSupplyService.cs" />
+    <Compile Include="Services\Impl\ProcesorService.cs" />
     <Compile Include="Services\Impl\ProducentService.cs" />
     <Compile Include="Services\Impl\RamService.cs" />
     <Compile Include="Services\Impl\SoundCardService.cs" />
     <Compile Include="Services\Impl\UserService.cs" />
     <Compile Include="Services\IGenericService.cs" />
+    <Compile Include="Services\IUserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace MakeComputerShop.Bll.Services.Impl
 {
-    public class UserService : IGenericService<UserDto>
+    public class UserService : IUserService
     {
-        IGenericRepository<UserDb> iUserRepository; 
+        IUserRepository iUserRepository; 
 
-        public UserService(IGenericRepository<UserDb> iUserRepository)
+        public UserService(IUserRepository iUserRepository)
         {
             this.iUserRepository = iUserRepository;
         }
@@ -45,6 +45,11 @@ namespace MakeComputerShop.Bll.Services.Impl
         {
             iUserRepository.UpdateItem(Mapper.Map<UserDto, UserDb>(item));
             iUserRepository.Save();
+        }
+
+        public UserDto GetItemByEmail(string email)
+        {
+            return Mapper.Map<UserDb, UserDto>(iUserRepository.GetItemByEmail(email));
         }
     }
 }

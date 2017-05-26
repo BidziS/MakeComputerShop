@@ -12,7 +12,7 @@ namespace MakeComputerShop.Dal.Models
 
         public string Email { get; set; }
 
-        public List<ComputerDb> Computers { get; set; }
+        public ComputerDb Computer { get; set; }
 
     }
 

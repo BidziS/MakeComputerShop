@@ -9,38 +9,31 @@ namespace MakeComputerShop.Dal.Models
 {
     public class ComputerDb
     {
-        [Required]
         public int Id { get; set; }
         
         public string Descripton { get; set; }
 
-        [Required]
-        public int MotherboardId { get; set; }
+        public int? MotherboardId { get; set; }
 
         public MotherboardDb Motherboard { get; set; }
 
-        [Required]
-        public int ProcesorId { get; set; }
+        public int? ProcesorId { get; set; }
 
         public ProcesorDb Procesor { get; set; }
 
-        [Required]
-        public int RamId { get; set; }
+        public int? RamId { get; set; }
 
         public RamDb Ram { get; set; }
 
-        [Required]
-        public int PowerSupplyId { get; set; }
+        public int? PowerSupplyId { get; set; }
 
         public PowerSupplyDb PowerSupply { get; set; }
 
-        [Required]
         public int? HardDriveId { get; set; }
 
         public HardDriveDb HardDrive { get; set; }
 
-        [Required]
-        public int ComputerCasingId { get; set; }
+        public int? ComputerCasingId { get; set; }
 
         public ComputerCasingDb ComputerCasing { get; set; }
 

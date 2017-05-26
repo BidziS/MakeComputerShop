@@ -1,0 +1,25 @@
+﻿@model MakeComputerShop.Bll.Dtos.ComputerDto
+@{
+    ViewBag.Title = "ShopCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Twój Komputer</h2>
+
+<hr/>
+
+@if (Model.Drive == null && Model.ComputerCasing == null
+     && Model.Descripton == null && Model.GraphicsCard == null
+     && Model.HardDrive == null && Model.Motherboard == null
+     && Model.NetworkCard == null && Model.PowerSupply == null
+     && Model.Procesor == null && Model.Ram == null && Model.SoundCard == null)
+{
+    <h5>Brak sprzętu</h5>
+}
+else
+{
+
+    @Html.Partial("_ProcesorListRow", Model.Procesor)
+
+            
+}

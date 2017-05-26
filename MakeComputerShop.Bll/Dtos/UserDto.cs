@@ -12,6 +12,6 @@ namespace MakeComputerShop.Bll.Dtos
 
         public string Email { get; set; }
 
-        public List<ComputerDto> Computers { get; set; }
+        public ComputerDto Computer { get; set; }
     }
 }

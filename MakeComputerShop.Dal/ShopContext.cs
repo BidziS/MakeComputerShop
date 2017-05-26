@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using MakeComputerShop.Dal.Models;
@@ -15,8 +16,9 @@ namespace MakeComputerShop.Dal
     {
         public ShopContext() :base("ComputerShopConnection")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
-
+        
         //public DbSet<BaseDb> BaseModel { get; set; }
 
         public DbSet<UserDb> Users { get; set; }

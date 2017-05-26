@@ -120,6 +120,22 @@
     <Compile Include="Migrations\201705221903198_modify computer and user model.Designer.cs">
       <DependentUpon>201705221903198_modify computer and user model.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705242112140_add imageurl to all models.cs" />
+    <Compile Include="Migrations\201705242112140_add imageurl to all models.Designer.cs">
+      <DependentUpon>201705242112140_add imageurl to all models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705251738351_change user model again.cs" />
+    <Compile Include="Migrations\201705251738351_change user model again.Designer.cs">
+      <DependentUpon>201705251738351_change user model again.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705251942229_modify computer model.cs" />
+    <Compile Include="Migrations\201705251942229_modify computer model.Designer.cs">
+      <DependentUpon>201705251942229_modify computer model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705251949233_asdsadsa.cs" />
+    <Compile Include="Migrations\201705251949233_asdsadsa.Designer.cs">
+      <DependentUpon>201705251949233_asdsadsa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseDb.cs" />
     <Compile Include="Models\ComputerCasingDb.cs" />
@@ -146,11 +162,13 @@
     <Compile Include="Repositories\impl\MotherboardRepository.cs" />
     <Compile Include="Repositories\impl\NetworkCardRepository.cs" />
     <Compile Include="Repositories\impl\PowerSupplyRepository.cs" />
+    <Compile Include="Repositories\impl\ProcesorRepository.cs" />
     <Compile Include="Repositories\impl\ProducentRepository.cs" />
     <Compile Include="Repositories\impl\RamRepository.cs" />
     <Compile Include="Repositories\impl\SoundCardRepository.cs" />
     <Compile Include="Repositories\impl\UserRepository.cs" />
     <Compile Include="Repositories\IGenericRepository.cs" />
+    <Compile Include="Repositories\IUserRepository.cs" />
     <Compile Include="ShopContext.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +202,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705221903198_modify computer and user model.resx">
       <DependentUpon>201705221903198_modify computer and user model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705242112140_add imageurl to all models.resx">
+      <DependentUpon>201705242112140_add imageurl to all models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705251738351_change user model again.resx">
+      <DependentUpon>201705251738351_change user model again.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705251942229_modify computer model.resx">
+      <DependentUpon>201705251942229_modify computer model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705251949233_asdsadsa.resx">
+      <DependentUpon>201705251949233_asdsadsa.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
