@@ -16,6 +16,7 @@ namespace MakeComputerShop.Dal.Models
 
         [Required]
         public string ChipsetName { get; set; }
+
         [Required]
         public int ChipsetId { get; set; }
 

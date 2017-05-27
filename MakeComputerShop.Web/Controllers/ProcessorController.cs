@@ -11,10 +11,18 @@ namespace MakeComputerShop.Web.Controllers
     public class ProcessorController : Controller
     {
         private IGenericService<ProcesorDto> iProcessorService;
+        IGenericService<ComputerDto> iComputerService;
+        IUserService iUserService;
+        IGenericService<DriveDto> iDriveService;
 
-        public ProcessorController(IGenericService<ProcesorDto> iProcessorService)
+        public ProcessorController(IGenericService<ProcesorDto> iProcessorService, 
+            IGenericService<ComputerDto> iComputerService, IUserService iUserService,
+            IGenericService<DriveDto> iDriveService)
         {
             this.iProcessorService = iProcessorService;
+            this.iComputerService = iComputerService;
+            this.iUserService = iUserService;
+            this.iDriveService = iDriveService;
         }
 
         // GET: Processor
@@ -30,6 +38,29 @@ namespace MakeComputerShop.Web.Controllers
             var processor = iProcessorService.GetItemById(id);
 
             return View(processor);
+        }
+
+        public RedirectToRouteResult AddToShopCart(ProcesorDto procesor)
+        {
+            var user = System.Web.HttpContext.Current.User.Identity.Name;
+
+            var userFromBase = iUserService.GetItemByEmail(user);
+
+            var computer = userFromBase.Computer;
+
+            //var drive = iDriveService.GetItemById(1);
+
+            //drive.Price = 123;
+
+            //iDriveService.UpdateItem(drive);
+
+            computer.Procesor = procesor;
+
+            iComputerService.UpdateItem(computer);
+
+            return RedirectToAction("All");
+
+
         }
     }
 }

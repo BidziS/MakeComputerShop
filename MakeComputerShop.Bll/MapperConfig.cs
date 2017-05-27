@@ -42,7 +42,7 @@ namespace MakeComputerShop.Bll
                 cfg.CreateMap<DriveDto, DriveDb>();
 
                 cfg.CreateMap<GraphicsCardDb, GraphicsCardDto>();
-                cfg.CreateMap<GraphicsCardDb, GraphicsCardDto>();
+                cfg.CreateMap<GraphicsCardDto, GraphicsCardDb>();
 
                 cfg.CreateMap<HardDriveDto, HardDriveDb>();
                 cfg.CreateMap<HardDriveDb, HardDriveDto>();
@@ -60,7 +60,8 @@ namespace MakeComputerShop.Bll
                 cfg.CreateMap<SoundCardDto, SoundCardDb>();
 
                 cfg.CreateMap<ComputerDb, ComputerDto>();
-                cfg.CreateMap<ComputerDto, ComputerDb>();
+                cfg.CreateMap<ComputerDto, ComputerDb>()
+                ;
             });
         }
     }

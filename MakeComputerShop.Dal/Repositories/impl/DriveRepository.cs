@@ -24,7 +24,7 @@ namespace MakeComputerShop.Dal.Repositories.impl
 
         public DriveDb GetItemById(int itemId)
         {
-            return context.Drives.Find(itemId);
+            return context.Drives.Include(d => d.Producent).FirstOrDefault();
         }
 
         public void InsertItem(DriveDb item)
@@ -40,7 +40,15 @@ namespace MakeComputerShop.Dal.Repositories.impl
 
         public void UpdateItem(DriveDb item)
         {
-            context.Entry(item).State = EntityState.Modified;
+            var entity = context.Drives.Where(c => c.Id == item.Id).AsQueryable().FirstOrDefault();
+            if (entity == null)
+            {
+                context.Drives.Add(item);
+            }
+            else
+            {
+                context.Entry(entity).CurrentValues.SetValues(item);
+            }
         }
 
         public void Save()

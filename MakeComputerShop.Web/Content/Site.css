@@ -74,6 +74,8 @@ table {
     height: auto; 
     text-align: center;
     border-right: solid 1px rgba(90,90,90, 0.05);
+    display: block;
+    margin: auto;
 }
 
 .item-description {
@@ -107,7 +109,6 @@ table {
     justify-content: center;
     flex-direction: column;
     height: 150px;
-    width: 100px;
     border-left: solid 1px rgba(90,90,90, 0.05);
     margin: 0 auto;
 }
@@ -148,10 +149,17 @@ table {
     table {
         font-size: 12px;
     }
+
 }
 
 @media all and (max-device-width: 320px) {
     table {
         font-size: 9px;
     }
+    details {
+        padding-left: 0;
+    }
+}
+.details {
+    padding-left:5%;
 }

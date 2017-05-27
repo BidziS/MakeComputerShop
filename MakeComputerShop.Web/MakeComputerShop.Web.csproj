@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>44398</IISExpressSSLPort>
+    <IISExpressSSLPort>44308</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
@@ -197,12 +197,21 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ComputerCasingController.cs" />
     <Compile Include="Controllers\ComputerController.cs" />
+    <Compile Include="Controllers\DriveController.cs" />
+    <Compile Include="Controllers\GraphicsCardController.cs" />
+    <Compile Include="Controllers\HardDriveController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MotherboardController.cs" />
+    <Compile Include="Controllers\NetworkCardController.cs" />
+    <Compile Include="Controllers\PowerSupplyController.cs" />
     <Compile Include="Controllers\ProcessorController.cs" />
     <Compile Include="Controllers\ProducentController.cs" />
+    <Compile Include="Controllers\RamController.cs" />
     <Compile Include="Controllers\ShopCartController.cs" />
+    <Compile Include="Controllers\SoundCardController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -309,6 +318,24 @@
     <Content Include="Views\ShopCart\ShopCart.cshtml" />
     <Content Include="Views\Shared\_ProcesorDetails.cshtml" />
     <Content Include="Views\Shared\_ProcesorListRow.cshtml" />
+    <Content Include="Views\ComputerCasing\All.cshtml" />
+    <Content Include="Views\ComputerCasing\Details.cshtml" />
+    <Content Include="Views\Drive\All.cshtml" />
+    <Content Include="Views\Drive\Details.cshtml" />
+    <Content Include="Views\GraphicsCard\All.cshtml" />
+    <Content Include="Views\GraphicsCard\Details.cshtml" />
+    <Content Include="Views\HardDrive\All.cshtml" />
+    <Content Include="Views\HardDrive\Details.cshtml" />
+    <Content Include="Views\Motherboard\All.cshtml" />
+    <Content Include="Views\Motherboard\Details.cshtml" />
+    <Content Include="Views\NetworkCard\All.cshtml" />
+    <Content Include="Views\NetworkCard\Details.cshtml" />
+    <Content Include="Views\PowerSupply\All.cshtml" />
+    <Content Include="Views\PowerSupply\Details.cshtml" />
+    <Content Include="Views\Ram\All.cshtml" />
+    <Content Include="Views\Ram\Details.cshtml" />
+    <Content Include="Views\SoundCard\All.cshtml" />
+    <Content Include="Views\SoundCard\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

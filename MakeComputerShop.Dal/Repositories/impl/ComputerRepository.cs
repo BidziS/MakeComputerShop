@@ -47,6 +47,7 @@ namespace MakeComputerShop.Dal.Repositories.impl
         public void UpdateItem(ComputerDb item)
         {
             context.Entry(item).State = EntityState.Modified;
+            Save();
         }
 
         public void Save()
