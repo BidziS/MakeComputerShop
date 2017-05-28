@@ -88,13 +88,9 @@
     <Compile Include="Migrations\201705091932015_init.Designer.cs">
       <DependentUpon>201705091932015_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705271012443_update models.cs" />
-    <Compile Include="Migrations\201705271012443_update models.Designer.cs">
-      <DependentUpon>201705271012443_update models.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705271926504_change graphisccard model.cs" />
-    <Compile Include="Migrations\201705271926504_change graphisccard model.Designer.cs">
-      <DependentUpon>201705271926504_change graphisccard model.cs</DependentUpon>
+    <Compile Include="Migrations\201705281937158_update models.cs" />
+    <Compile Include="Migrations\201705281937158_update models.Designer.cs">
+      <DependentUpon>201705281937158_update models.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseDb.cs" />
@@ -139,11 +135,8 @@
     <EmbeddedResource Include="Migrations\201705091932015_init.resx">
       <DependentUpon>201705091932015_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705271012443_update models.resx">
-      <DependentUpon>201705271012443_update models.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705271926504_change graphisccard model.resx">
-      <DependentUpon>201705271926504_change graphisccard model.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705281937158_update models.resx">
+      <DependentUpon>201705281937158_update models.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

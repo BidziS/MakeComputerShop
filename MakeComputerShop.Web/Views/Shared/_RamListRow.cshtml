@@ -7,22 +7,19 @@
         <div class="col-md-6 col-lg-6 col-sm-7 col-xs-7 details">
             <h4>@Model.Name</h4>
             <br />
-            <h5>Pojemność: @Model.Capacity</h5>
+            <h5>Typ: @Model.RAMType</h5>
             <br />
-            <h5>Typ: @Model.HardDriveType</h5>
+            <h5>Taktowanie: @Model.Frequency MHz</h5>
             <br />
             <h5>Cena: @Model.Price</h5>
         </div>
         <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5">
             <div class="flex-center">
-                @Html.ActionLink("szczegóły", "Details", "HardDrive", new { id = Model.Id }, new { @class = "btn" })
-                @*@Html.ActionLink("do koszyka", "AddToShopCart", "Processor", new { Id = C.Id, Name = Model.Name }, new { @class = "btn" })*@
+                @Html.ActionLink("szczegóły", "Details", "Ram", new { id = Model.Id }, new { @class = "btn" })
+                @*@Html.ActionLink("do koszyka", "AddToShopCart", "Processor", new { Id = Model.Id, Name = Model.Name }, new { @class = "btn" })*@
 
             </div>
 
         </div>
     </div>
 </div>
-
-
-

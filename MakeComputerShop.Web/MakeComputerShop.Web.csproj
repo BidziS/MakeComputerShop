@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>44308</IISExpressSSLPort>
+    <IISExpressSSLPort>44398</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
@@ -344,6 +344,12 @@
     <Content Include="Views\Shared\_GraphicsCardListRow.cshtml" />
     <Content Include="Views\Shared\_HardDriveDetails.cshtml" />
     <Content Include="Views\Shared\_HardDriveListRow.cshtml" />
+    <Content Include="Views\Shared\_MotherboardDetails.cshtml" />
+    <Content Include="Views\Shared\_MotherboardListRow.cshtml" />
+    <Content Include="Views\Shared\_NetworkCardDetails.cshtml" />
+    <Content Include="Views\Shared\_NetworkCardListRow.cshtml" />
+    <Content Include="Views\Shared\_RamListRow.cshtml" />
+    <Content Include="Views\Shared\_RamDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

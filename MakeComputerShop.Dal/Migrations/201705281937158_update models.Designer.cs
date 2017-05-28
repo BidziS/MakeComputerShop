@@ -13,7 +13,7 @@ namespace MakeComputerShop.Dal.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201705271012443_update models"; }
+            get { return "201705281937158_update models"; }
         }
         
         string IMigrationMetadata.Source

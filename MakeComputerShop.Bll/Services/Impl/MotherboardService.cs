@@ -27,22 +27,25 @@ namespace MakeComputerShop.Bll.Services.Impl
 
         public MotherboardDto GetItemById(int itemId)
         {
-            throw new NotImplementedException();
+            return Mapper.Map<MotherboardDb, MotherboardDto>(iMotherboardRepository.GetItemById(itemId));
         }
 
         public void InsertItem(MotherboardDto item)
         {
-            throw new NotImplementedException();
+            iMotherboardRepository.InsertItem(Mapper.Map<MotherboardDto, MotherboardDb>(item));
+            iMotherboardRepository.Save();
         }
 
         public void DeleteItem(int itemId)
         {
-            throw new NotImplementedException();
+            iMotherboardRepository.DeleteItem(itemId);
+            iMotherboardRepository.Save();
         }
 
         public void UpdateItem(MotherboardDto item)
         {
-            throw new NotImplementedException();
+            iMotherboardRepository.UpdateItem(Mapper.Map<MotherboardDto, MotherboardDb>(item));
+            iMotherboardRepository.Save();
         }
     }
 }

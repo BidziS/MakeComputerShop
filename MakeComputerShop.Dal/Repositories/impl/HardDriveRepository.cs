@@ -24,7 +24,7 @@ namespace MakeComputerShop.Dal.Repositories.impl
 
         public HardDriveDb GetItemById(int itemId)
         {
-            return context.HardDrives.Find(itemId);
+            return context.HardDrives.Include(h => h.Producent).FirstOrDefault();
         }
 
         public void InsertItem(HardDriveDb item)

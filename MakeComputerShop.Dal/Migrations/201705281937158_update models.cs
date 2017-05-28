@@ -3,7 +3,7 @@ namespace MakeComputerShop.Dal.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class changegraphisccardmodel : DbMigration
+    public partial class updatemodels : DbMigration
     {
         public override void Up()
         {

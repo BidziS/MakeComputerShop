@@ -27,7 +27,7 @@ namespace MakeComputerShop.Dal.Repositories.impl
             return context.Procesors
                 .Include(p => p.Producent)
                 .Include(p => p.Socket)
-                .FirstOrDefault();
+                .FirstOrDefault(p => p.Id == itemId);
         }
 
         public void InsertItem(ProcesorDb item)

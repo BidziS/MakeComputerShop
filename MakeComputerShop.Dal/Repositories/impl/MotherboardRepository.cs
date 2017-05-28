@@ -19,12 +19,19 @@ namespace MakeComputerShop.Dal.Repositories.impl
 
         public IEnumerable<MotherboardDb> GetAll()
         {
-            return context.Motherboards.ToList();
+            return context.Motherboards
+                .Include(m => m.Socket)
+                .Include(m => m.Chipset)
+                .ToList();
         }
 
         public MotherboardDb GetItemById(int itemId)
         {
-            return context.Motherboards.Include(m => m.Producent).SingleOrDefault(m => m.Id == itemId);
+            return context.Motherboards
+                .Include(m => m.Producent)
+                .Include(m => m.Socket)
+                .Include(m => m.Chipset)
+                .SingleOrDefault(m => m.Id == itemId);
         }
 
         public void InsertItem(MotherboardDb item)
