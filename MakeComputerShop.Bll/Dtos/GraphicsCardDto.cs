@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MakeComputerShop.Bll.Dtos.MotherboardElementsDto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ namespace MakeComputerShop.Bll.Dtos
     {
         public ProducentDto Producent { get; set; }
 
-        public string ChipsetName { get; set; }
+        public ChipsetDto Chipset { get; set; }
 
         public int MemorySize { get; set; }
 

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MakeComputerShop.Bll.Dtos;
+using MakeComputerShop.Bll.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,15 +10,26 @@ namespace MakeComputerShop.Web.Controllers
 {
     public class DriveController : Controller
     {
+        IGenericService<DriveDto> iDriveService;
+
+        public DriveController(IGenericService<DriveDto> iDriveService)
+        {
+            this.iDriveService = iDriveService;
+        }
+
         // GET: Drive
         public ActionResult All()
         {
-            return View();
+            var drives = iDriveService.GetAll();
+
+            return View(drives);
         }
 
         public ActionResult Details(int id)
         {
-            return View();
+            var drive = iDriveService.GetItemById(id);
+
+            return View(drive);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MakeComputerShop.Dal.Models.MotherboardElements;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,8 +15,7 @@ namespace MakeComputerShop.Dal.Models
         [Required]
         public int ProducentId { get; set; }
 
-        [Required]
-        public string ChipsetName { get; set; }
+        public ChipsetDb Chipset { get; set; }
 
         [Required]
         public int ChipsetId { get; set; }

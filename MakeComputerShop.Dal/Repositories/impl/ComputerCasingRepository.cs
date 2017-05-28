@@ -25,7 +25,7 @@ namespace MakeComputerShop.Dal.Repositories.impl
 
         public ComputerCasingDb GetItemById(int itemId)
         {
-            return context.ComputerCasings.Find(itemId);
+            return context.ComputerCasings.Include(cc => cc.Producent).FirstOrDefault();
         }
 
         public void InsertItem(ComputerCasingDb item)

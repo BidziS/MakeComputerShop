@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MakeComputerShop.Bll.Dtos;
+using MakeComputerShop.Bll.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,15 +10,26 @@ namespace MakeComputerShop.Web.Controllers
 {
     public class ComputerCasingController : Controller
     {
+        IGenericService<ComputerCasingDto> iComputerCaseService;
+
+        public ComputerCasingController(IGenericService<ComputerCasingDto> iComputerCaseService)
+        {
+            this.iComputerCaseService = iComputerCaseService;
+        }
+
         // GET: ComputerCasing
         public ActionResult All()
         {
-            return View();
+            var computerCases = iComputerCaseService.GetAll();
+
+            return View(computerCases);
         }
 
         public ActionResult Details(int id)
         {
-            return View();
+            var computerCase = iComputerCaseService.GetItemById(id);
+
+            return View(computerCase);
         }
     }
 }

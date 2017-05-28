@@ -26,7 +26,10 @@ namespace MakeComputerShop.Dal.Repositories.impl
 
         public GraphicsCardDb GetItemById(int itemId)
         {
-            return context.GraphicsCards.Find(itemId);
+            return context.GraphicsCards
+                .Include(g => g.Chipset)
+                .Include(g => g.Producent)
+                .FirstOrDefault();
         }
 
         public void InsertItem(GraphicsCardDb item)

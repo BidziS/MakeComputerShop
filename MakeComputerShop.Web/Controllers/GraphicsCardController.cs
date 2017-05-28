@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MakeComputerShop.Bll.Dtos;
+using MakeComputerShop.Bll.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,15 +10,26 @@ namespace MakeComputerShop.Web.Controllers
 {
     public class GraphicsCardController : Controller
     {
+        IGenericService<GraphicsCardDto> iGraphicsCardService;
+
+        public GraphicsCardController(IGenericService<GraphicsCardDto> iGraphicsCardService)
+        {
+            this.iGraphicsCardService = iGraphicsCardService;
+        }
+
         // GET: GraphicsCard
         public ActionResult All()
         {
-            return View();
+            var graphicsCards = iGraphicsCardService.GetAll();
+
+            return View(graphicsCards);
         }
 
         public ActionResult Details(int id)
         {
-            return View();
+            var graphicsCard = iGraphicsCardService.GetItemById(id);
+
+            return View(graphicsCard);
         }
     }
 }

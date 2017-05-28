@@ -336,6 +336,14 @@
     <Content Include="Views\Ram\Details.cshtml" />
     <Content Include="Views\SoundCard\All.cshtml" />
     <Content Include="Views\SoundCard\Details.cshtml" />
+    <Content Include="Views\Shared\_ComputerCasingDetails.cshtml" />
+    <Content Include="Views\Shared\_ComputerCasingListRow.cshtml" />
+    <Content Include="Views\Shared\_DriveDetails.cshtml" />
+    <Content Include="Views\Shared\_DriveListRow.cshtml" />
+    <Content Include="Views\Shared\_GraphicsCardDetails.cshtml" />
+    <Content Include="Views\Shared\_GraphicsCardListRow.cshtml" />
+    <Content Include="Views\Shared\_HardDriveDetails.cshtml" />
+    <Content Include="Views\Shared\_HardDriveListRow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
