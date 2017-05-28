@@ -1,0 +1,32 @@
+﻿@model MakeComputerShop.Bll.Dtos.HardDriveDto
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div class="container">
+    <hr />
+    @if (Model == null)
+    {
+        <text>
+            Nie ma żadnych twardych dysków w bazie
+        </text>
+    }
+    else
+    {
+        <div class="item-homepage">
+            <div class="row">
+                @Html.Partial("_HardDriveDetails", Model)
+                <div class="row">
+                    <div class="block-center">
+                        @Html.ActionLink("powrót", "All", "HardDrive", null, new { @class = "btn" })
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    }
+</div>

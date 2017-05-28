@@ -9,7 +9,7 @@ using MakeComputerShop.Dal.Models;
 
 namespace MakeComputerShop.Dal.Repositories.impl
 {
-    public class ComputerCasingRepository : IComputerCasingRepository
+    public class ComputerCasingRepository : IGenericRepository<ComputerCasingDb>
     {
         private ShopContext context;
 
@@ -18,40 +18,38 @@ namespace MakeComputerShop.Dal.Repositories.impl
             this.context = context;
         }
 
-        public void DeleteComputerCasing(int computerCasingId)
-        {
-            ComputerCasingDb computerCasing = GetComputerCasingById(computerCasingId);
-            if (computerCasing != null) context.ComputerCasings.Remove(computerCasing);
-        }
-
-        public ComputerCasingDb GetComputerCasingById(int computerCasingId)
-        {
-            return context.ComputerCasings.Find(computerCasingId);
-        }
-
-        public IEnumerable<ComputerCasingDb> GetComputerCasings()
+        public IEnumerable<ComputerCasingDb> GetAll()
         {
             return context.ComputerCasings.ToList();
         }
 
-        public IEnumerable<ComputerCasingDb> GetComputerCasingsByProducentId(int producentId)
+        public ComputerCasingDb GetItemById(int itemId)
         {
-            return context.ComputerCasings.Include(m => m.Producent).Where(m => m.ProducentId == producentId);
+            return context.ComputerCasings
+                .Include(p => p.Producent)
+                .FirstOrDefault();
         }
 
-        public void InsertComputerCasing(ComputerCasingDb computerCasing)
+        public void InsertItem(ComputerCasingDb item)
         {
-            context.ComputerCasings.Add(computerCasing);
+            context.ComputerCasings.Add(item);
+        }
+
+        public void DeleteItem(int itemId)
+        {
+            ComputerCasingDb computerCasing = GetItemById(itemId);
+            if (computerCasing != null) context.ComputerCasings.Remove(computerCasing);
+        }
+
+        public void UpdateItem(ComputerCasingDb item)
+        {
+            context.Entry(item).State = EntityState.Modified;
         }
 
         public void Save()
         {
             context.SaveChanges();
         }
-
-        public void UpdateComputerCasing(ComputerCasingDb computerCasing)
-        {
-            context.Entry(computerCasing).State = EntityState.Modified;
-        }
+      
     }
 }

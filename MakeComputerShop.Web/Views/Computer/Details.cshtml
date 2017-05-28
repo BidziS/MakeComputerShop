@@ -1,0 +1,17 @@
+﻿@model MakeComputerShop.Bll.Dtos.ComputerDto
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Specification</h2>
+
+<table class="table">
+    <tbody>
+    <tr>
+        <td>Motherboard</td><td>@Model.Motherboard.Name</td>
+        <td>@Html.ActionLink("Details", "Producent", "Producent", new { id = Model.Motherboard.Producent.Id }, null)</td>
+    </tr>
+    </tbody>
+</table>

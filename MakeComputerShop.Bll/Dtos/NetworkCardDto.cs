@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MakeComputerShop.Bll.Dtos
 {
-    public class NetworkCardDto:BaseDto
+    public class NetworkCardDto : BaseDto
     {
         public ProducentDto Producent { get; set; }
 

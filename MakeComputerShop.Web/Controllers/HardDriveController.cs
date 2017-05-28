@@ -1,37 +1,66 @@
-﻿using System;
+﻿using MakeComputerShop.Bll.Dtos;
+using MakeComputerShop.Bll.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MakeComputerShop.Bll.Dtos;
-using MakeComputerShop.Bll.Services;
 
 namespace MakeComputerShop.Web.Controllers
 {
     public class HardDriveController : Controller
     {
-        private IHardDriveService iHardDriveService;
+        private IGenericService<HardDriveDto> iHardDriveService;
+        IGenericService<ComputerDto> iComputerService;
+        IUserService iUserService;
+        IGenericService<DriveDto> iDriveService;
 
-        public HardDriveController(IHardDriveService iHardDriveService)
+        public HardDriveController(IGenericService<HardDriveDto> iHardDriveService,
+            IGenericService<ComputerDto> iComputerService, IUserService iUserService,
+            IGenericService<DriveDto> iDriveService)
         {
             this.iHardDriveService = iHardDriveService;
+            this.iComputerService = iComputerService;
+            this.iUserService = iUserService;
+            this.iDriveService = iDriveService;
         }
 
-        public HardDriveController()
+        // GET: Processor
+        public ActionResult All()
         {
+            var hard_drives = iHardDriveService.GetAll();
+
+            return View(hard_drives);
         }
 
-        // GET: Producent
-        public ActionResult HardDrives()
+        public ActionResult Details(int id)
         {
-            var hardDrive = iHardDriveService.GetHardDrives();
-            return View(hardDrive);
+            var hard_drive = iHardDriveService.GetItemById(id);
+
+            return View(hard_drive);
         }
 
-        public ActionResult HardDrives(int id)
+        public RedirectToRouteResult AddToShopCart(HardDriveDto hard_drive)
         {
-            var hardDrive = iHardDriveService.GetHardDriveById(id);
-            return View(hardDrive);
+            var user = System.Web.HttpContext.Current.User.Identity.Name;
+
+            var userFromBase = iUserService.GetItemByEmail(user);
+
+            var computer = userFromBase.Computer;
+
+            //var drive = iDriveService.GetItemById(1);
+
+            //drive.Price = 123;
+
+            //iDriveService.UpdateItem(drive);
+
+            computer.HardDrive = hard_drive;
+
+            iComputerService.UpdateItem(computer);
+
+            return RedirectToAction("All");
+
+
         }
     }
 }

@@ -10,45 +10,45 @@ using MakeComputerShop.Dal.Repositories;
 
 namespace MakeComputerShop.Bll.Services.Impl
 {
-    public class ProducentService:IProducentService
+    public class ProducentService:IGenericService<ProducentDto>
     {
-        private IProducentRepository iProducentRepository;
+        private IGenericRepository<ProducentDb> iProducentRepository;
 
-        public ProducentService(IProducentRepository iProducentRepository)
+        public ProducentService(IGenericRepository<ProducentDb> iProducentRepository)
         {
             this.iProducentRepository = iProducentRepository;
         }
 
-        public IEnumerable<ProducentDto> GetProducents()
+        public IEnumerable<ProducentDto> GetAll()
         {
             IEnumerable<ProducentDto> producents =
-                Mapper.Map<IEnumerable<ProducentDb>, IEnumerable<ProducentDto>>(iProducentRepository.GetProducents());
+                Mapper.Map<IEnumerable<ProducentDb>, IEnumerable<ProducentDto>>(iProducentRepository.GetAll());
             return producents;
         }
 
-        public ProducentDto GetProducentById(int producentId)
+        public ProducentDto GetItemById(int producentId)
         {
             ProducentDto producentDto =
-                Mapper.Map<ProducentDb, ProducentDto>(iProducentRepository.GetProducentById(producentId));
+                Mapper.Map<ProducentDb, ProducentDto>(iProducentRepository.GetItemById(producentId));
 
             return producentDto;
         }
 
-        public void InsertProducent(ProducentDto producent)
+        public void InsertItem(ProducentDto producent)
         {
-            iProducentRepository.InsertProducent(Mapper.Map<ProducentDto,ProducentDb>(producent));
+            iProducentRepository.InsertItem(Mapper.Map<ProducentDto,ProducentDb>(producent));
             iProducentRepository.Save();
         }
 
-        public void DeleteProducent(int producentId)
+        public void DeleteItem(int producentId)
         {
-            iProducentRepository.DeleteProducent(producentId);
+            iProducentRepository.DeleteItem(producentId);
             iProducentRepository.Save();
         }
 
-        public void UpdateProducent(ProducentDto producent)
+        public void UpdateItem(ProducentDto producent)
         {
-            iProducentRepository.UpdateProducent(Mapper.Map<ProducentDto,ProducentDb>(producent));
+            iProducentRepository.UpdateItem(Mapper.Map<ProducentDto,ProducentDb>(producent));
             iProducentRepository.Save();
         }
     }

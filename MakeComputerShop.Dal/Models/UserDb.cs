@@ -8,10 +8,12 @@ namespace MakeComputerShop.Dal.Models
 {
     public class UserDb
     {
-        public int ID { get; set; }
-        public string LastName { get; set; }
-        public string FirstMidName { get; set; }
-        
+        public int Id { get; set; }
+
+        public string Email { get; set; }
+
+        public ComputerDb Computer { get; set; }
+
     }
 
 }

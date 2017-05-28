@@ -1,10 +1,10 @@
-﻿@model IEnumerable<MakeComputerShop.Bll.Dtos.ProducentDto>
+﻿
 @{
     ViewBag.Title = "Producents";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Producents</h2>
+@*<h2>Producents</h2>
 
 <div class="container">
     @if (!Model.Any())
@@ -17,23 +17,19 @@
     {
         <table class="table table-bordered table-responsive">
             <thead>
-            <tr>
-                <td>Name</td>
-            </tr>
+                <tr>
+                    <td>Name</td>
+                </tr>
             </thead>
             <tbody>
-            @foreach (var producent in Model)
-            {
-                <tr>
-                    <td>@Html.ActionLink(producent.Name,"Producent","Producent",new {id = producent.Id},null)</td>
-                </tr>
-            }           
+                @foreach (var product in Model)
+                {
+                    <tr>
+                        <td><a href=@product.Url>Item</a></td>
+                    </tr>
+                }
             </tbody>
         </table>
     }
 
-</div>
-
-
-
-
+</div>*@

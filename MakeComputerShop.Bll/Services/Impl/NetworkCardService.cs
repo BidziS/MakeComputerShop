@@ -8,51 +8,43 @@ using MakeComputerShop.Bll.Dtos;
 using MakeComputerShop.Dal.Models;
 using MakeComputerShop.Dal.Repositories;
 
-
 namespace MakeComputerShop.Bll.Services.Impl
 {
-    public class NetworkCardService : INetworkCardService
+    public class NetworkCardService : IGenericService<NetworkCardDto>
     {
-        private INetworkCardRepository iNetworkCardRepository;
+        private IGenericRepository<NetworkCardDb> iNetworkCardRepository;
 
-        public NetworkCardService(INetworkCardRepository inetworkCardRepository)
+        public NetworkCardService(IGenericRepository<NetworkCardDb> iNetworkCardRepository)
         {
-            this.iNetworkCardRepository = inetworkCardRepository;
+            this.iNetworkCardRepository = iNetworkCardRepository;
         }
 
-        public IEnumerable<NetworkCardDto> GetNetworkCard()
+        public IEnumerable<NetworkCardDto> GetAll()
         {
-            return Mapper.Map<IEnumerable<NetworkCardDb>, IEnumerable<NetworkCardDto>>(iNetworkCardRepository.GetNetworkCard());
+            return Mapper.Map<IEnumerable<NetworkCardDb>, IEnumerable<NetworkCardDto>>(iNetworkCardRepository.GetAll());
         }
 
-        public IEnumerable<NetworkCardDto> GetNetworkCardByProducentId(int producentId)
+        public NetworkCardDto GetItemById(int networkCardId)
         {
-            return Mapper.Map<IEnumerable<NetworkCardDb>, IEnumerable<NetworkCardDto>>(iNetworkCardRepository.GetNetworkCardByProducentId(producentId));
+            return Mapper.Map<NetworkCardDb, NetworkCardDto>(iNetworkCardRepository.GetItemById(networkCardId));
         }
-
-        public NetworkCardDto GetNetworkCardById(int networkCardId)
+        public void InsertItem(NetworkCardDto networkCard)
         {
-            return Mapper.Map<NetworkCardDb, NetworkCardDto>(iNetworkCardRepository.GetNetworkCardById(networkCardId));
-        }
-        public void InsertNetworkCard(NetworkCardDto networkCard)
-        {
-            iNetworkCardRepository.InsertNetworkCard(Mapper.Map<NetworkCardDto, NetworkCardDb>(networkCard));
+            iNetworkCardRepository.InsertItem(Mapper.Map<NetworkCardDto, NetworkCardDb>(networkCard));
             iNetworkCardRepository.Save();
         }
 
-        public void DeleteNetworkCard(int networkCardId)
+        public void DeleteItem(int networkCardId)
         {
-            iNetworkCardRepository.DeleteNetworkCard(networkCardId);
+            iNetworkCardRepository.DeleteItem(networkCardId);
             iNetworkCardRepository.Save();
         }
 
-        public void UpdateNetworkCard(NetworkCardDto networkCard)
+        public void UpdateItem(NetworkCardDto networkCard)
         {
-            iNetworkCardRepository.UpdateNetworkCard(Mapper.Map<NetworkCardDto, NetworkCardDb>(networkCard));
+            iNetworkCardRepository.UpdateItem(Mapper.Map<NetworkCardDto, NetworkCardDb>(networkCard));
             iNetworkCardRepository.Save();
         }
-
-
 
     }
 }

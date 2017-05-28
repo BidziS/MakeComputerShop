@@ -3,45 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MakeComputerShop.Bll.Dtos;
 using MakeComputerShop.Bll.Services;
+using MakeComputerShop.Bll.Dtos;
+using MakeComputerShop.Web.Models;
 
 namespace MakeComputerShop.Web.Controllers
 {
     public class ProducentController : Controller
     {
-        private IProducentService iProducentService;
+        private IGenericService<ProducentDto> iProducentService;
 
-        public ProducentController(IProducentService iProducentService)
+        public ProducentController(IGenericService<ProducentDto> iProducentService)
         {
             this.iProducentService = iProducentService;
         }
-
-        public ProducentController()
-        {
-        }
-
         // GET: Producent
-        /*public ActionResult Producents()
-        {
-            var producents = iProducentService.GetProducents();
-            return View(producents);
-        }
-        */
-        public ActionResult Producent(int id)
-        {
-            var producent = iProducentService.GetProducentById(id);
-            return View(producent);
-        }
-        
-
-
-        ///  PDF : /////
+        [Authorize]
         public ActionResult Producents()
         {
-            var pdf = iProducentService.GetProducents();
-            return new RazorPDF.PdfActionResult("Producents", pdf);
+            var producents = iProducentService.GetAll();
+
+            return View();
         }
-        
+        [Authorize]
+        public ActionResult Producent(int id)
+        {
+            var producent = iProducentService.GetItemById(id);
+
+            return View(producent);
+        }
     }
 }

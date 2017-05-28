@@ -1,0 +1,41 @@
+﻿<div class="row">
+    <img src="@Model.ImageUrl"
+         alt="boohoo" class="image-details img-responsive"/>
+</div>
+<div class="col-lg-offset-2 col-lg-7 col-lg-offset-2 col-md-offset-1 col-md-9 col-md-offset-1">
+    <div class="table-products">
+        <table class="table table-bordered table-hover table-responsive table-striped table-condensed">
+            <thead></thead>
+            <tbody>
+            <tr>
+                <td>Nazwa:</td>
+                <td>@Model.Name</td>
+            </tr>
+            <tr>
+                <td> Typ:</td>
+                <td>@Model.CasingType</td>
+            </tr>
+            <tr>
+                <td>Producent: </td>
+                <td>@Model.Producent.Name</td>
+            </tr>
+                <tr>
+                    <td>Szerokość: </td>
+                    <td>@Model.Width cm</td>
+                </tr>
+                <tr>
+                    <td>Wysokość: </td>
+                    <td>@Model.Height cm</td>
+                </tr>
+                <tr>
+                    <td>Głębokość: </td>
+                    <td>@Model.Depth cm</td>
+                </tr>
+            <tr>
+                <td>Cena: </td>
+                <td>@Model.Price zł</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>                                                        

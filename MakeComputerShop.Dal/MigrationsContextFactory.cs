@@ -11,7 +11,7 @@ namespace MakeComputerShop.Dal
     {
         public ShopContext Create()
         {
-            return new ShopContext("ComputerShop");
+            return new ShopContext();
         }
     }
 }

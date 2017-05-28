@@ -10,57 +10,37 @@ using MakeComputerShop.Dal.Repositories;
 
 namespace MakeComputerShop.Bll.Services.Impl
 {
-    public class MotherboardService:IMotherboardService
+    public class MotherboardService:IGenericService<MotherboardDto>
     {
-        private IMotherboardRepository iMotherboardRepository;
+        private IGenericRepository<MotherboardDb> iMotherboardRepository;
 
-        public MotherboardService(IMotherboardRepository iMotherboardRepository)
+        public MotherboardService(IGenericRepository<MotherboardDb> iMotherboardRepository)
         {
             this.iMotherboardRepository = iMotherboardRepository;
         }
 
-        public IEnumerable<MotherboardDto> GetMotherboards()
+        public IEnumerable<MotherboardDto> GetAll()
         {
             return Mapper.Map<IEnumerable<MotherboardDb>, IEnumerable<MotherboardDto>>(iMotherboardRepository
-                .GetMotherboards());
+                .GetAll());
         }
 
-        public IEnumerable<MotherboardDto> GetMotherboardsByProducentId(int producentId)
+        public MotherboardDto GetItemById(int itemId)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<MotherboardDto> GetMotherboardsBySocket(int socketId)
+        public void InsertItem(MotherboardDto item)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<MotherboardDto> GetMotherboardsByChipset(int chipsetId)
+        public void DeleteItem(int itemId)
         {
             throw new NotImplementedException();
         }
 
-        public MotherboardDto GetMotherboardById(int motherboardId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void InsertMotherboard(MotherboardDto motherboard)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteMotherboard(int motherboardId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void UpdateMotherboard(MotherboardDto motherboard)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Save()
+        public void UpdateItem(MotherboardDto item)
         {
             throw new NotImplementedException();
         }

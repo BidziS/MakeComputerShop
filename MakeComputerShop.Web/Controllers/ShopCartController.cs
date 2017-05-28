@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using MakeComputerShop.Bll.Services;
+
+namespace MakeComputerShop.Web.Controllers
+{
+    [Authorize]
+    public class ShopCartController : Controller
+    {
+        private IUserService iUserService;
+
+        public ShopCartController(IUserService iUserService)
+        {
+            this.iUserService = iUserService;
+        }
+
+        // GET: ShopCart
+        public ActionResult ShopCart()
+        {
+            var user = System.Web.HttpContext.Current.User.Identity.Name;
+
+            var userFromBase = iUserService.GetItemByEmail(user);
+
+            var shopCart = userFromBase.Computer;
+
+            return View(shopCart);
+        }
+    }
+}

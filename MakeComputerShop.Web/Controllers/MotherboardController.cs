@@ -3,23 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MakeComputerShop.Bll.Services;
 
 namespace MakeComputerShop.Web.Controllers
 {
     public class MotherboardController : Controller
     {
-        private IMotherboardService iMotherboardService;
-
-        public MotherboardController(IMotherboardService iMotherboardService)
+        // GET: Motherboard
+        public ActionResult All()
         {
-            this.iMotherboardService = iMotherboardService;
+            return View();
         }
 
-        // GET: Motherboard
-        public ActionResult Motherboards()
+        public ActionResult Details(int id)
         {
-            var motherboards = iMotherboardService.GetMotherboards();
             return View();
         }
     }

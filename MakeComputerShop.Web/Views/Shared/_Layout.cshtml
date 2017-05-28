@@ -2,13 +2,44 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
 </head>
 <body>
-    @Html.Partial("_NavBar")
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a>
+                    <img class="image_nav" src="http://i.dailymail.co.uk/i/pix/2014/05/24/article-0-1CBD4BEF00000578-232_308x425.jpg" />
+                    @Html.ActionLink("cebule.net", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </a>
+            </div>
+            
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Computers", "All", "Computer")</li>
+                    <li>@Html.ActionLink("Procesors", "All", "Processor")</li>
+                    <li>@Html.ActionLink("Zasilacze", "All", "PowerSupply")</li>
+                    <li>@Html.ActionLink("Dyski twarde", "All", "HardDrive")</li>
+                    <li>@Html.ActionLink("Obudowy", "All", "ComputerCasing")</li>
+                </ul>
+                
+                @Html.Partial("_LoginPartial")
+                <div>
+                    <ul class="nav navbar-nav navbar-right"><li>@Html.ActionLink("Twój Komputer", "Index", "Home")</li></ul>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container body-content">
         @RenderBody()
         <hr />

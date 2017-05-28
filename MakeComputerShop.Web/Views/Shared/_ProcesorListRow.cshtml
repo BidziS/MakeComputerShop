@@ -1,0 +1,23 @@
+﻿<div class="item-homepage">
+    <div class="row">
+        <div class="col-md-4 col-lg-4 clearfix">
+            <img src="@Model.ImageUrl"}
+                 alt="boohoo" class="img-homepage"/>
+        </div>
+        <div class="col-md-6 col-lg-6 col-sm-7 col-xs-7 details">
+            <h4>@Model.Name</h4>
+            <br/>
+            <h5>Liczba rdzeni: @Model.NumberOfCores</h5>
+            <br/>
+            <h5>Taktowanie: @Model.Frequency GHz</h5>
+        </div>
+        <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5">
+            <div class="flex-center">
+                @Html.ActionLink("szczegóły", "Details", "Processor", new { id = Model.Id }, new {@class="btn"})
+                @Html.ActionLink("do koszyka", "AddToShopCart", "Processor", new { Id = Model.Id, Name = Model.Name}, new { @class = "btn" })
+
+            </div>
+                        
+        </div>
+    </div>
+</div>

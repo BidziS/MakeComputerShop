@@ -8,46 +8,39 @@ using MakeComputerShop.Dal.Models;
 
 namespace MakeComputerShop.Dal.Repositories.impl
 {
-    public class NetworkCardRepository : INetworkCardRepository
+    public class NetworkCardRepository : IGenericRepository<NetworkCardDb>
     {
         private ShopContext context;
-
-        private IDriveRepository iDriveRepository;
 
         public NetworkCardRepository(ShopContext context)
         {
             this.context = context;
         }
 
-        public IEnumerable<NetworkCardDb> GetNetworkCard()
+        public IEnumerable<NetworkCardDb> GetAll()
         {
             return context.NetworkCards.ToList();
         }
 
-        public IEnumerable<NetworkCardDb> GetNetworkCardByProducentId(int producentId)
+        public NetworkCardDb GetItemById(int itemId)
         {
-            return context.NetworkCards.Include(m => m.Producent).Where(m => m.ProducentId == producentId);
+            return context.NetworkCards.Find(itemId);
         }
 
-        public NetworkCardDb GetNetworkCardById(int netowrkCardId)
+        public void InsertItem(NetworkCardDb item)
         {
-            return context.NetworkCards.Find(netowrkCardId);
+            context.NetworkCards.Add(item);
         }
 
-        public void InsertNetworkCard(NetworkCardDb networkCard)
+        public void DeleteItem(int itemId)
         {
-            context.NetworkCards.Add(networkCard);
-        }
-
-        public void DeleteNetworkCard(int networkCardId)
-        {
-            NetworkCardDb networkCard = context.NetworkCards.Find(networkCardId);
+            NetworkCardDb networkCard = context.NetworkCards.Find(itemId);
             if (networkCard != null) context.NetworkCards.Remove(networkCard);
         }
 
-        public void UpdateNetworkCard(NetworkCardDb networkCard)
+        public void UpdateItem(NetworkCardDb item)
         {
-            context.Entry(networkCard).State = EntityState.Modified;
+            context.Entry(item).State = EntityState.Modified;
         }
 
         public void Save()
@@ -55,25 +48,6 @@ namespace MakeComputerShop.Dal.Repositories.impl
             context.SaveChanges();
         }
 
-        private bool disposed = false;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    context.Dispose();
-                }
-            }
-            this.disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
 
     }
 }

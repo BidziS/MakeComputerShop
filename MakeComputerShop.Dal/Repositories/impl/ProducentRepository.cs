@@ -8,7 +8,7 @@ using MakeComputerShop.Dal.Models;
 
 namespace MakeComputerShop.Dal.Repositories.impl
 {
-    public class ProducentRepository:IProducentRepository
+    public class ProducentRepository:IGenericRepository<ProducentDb>
     {
         private ShopContext context;
 
@@ -17,56 +17,36 @@ namespace MakeComputerShop.Dal.Repositories.impl
             this.context = context;
         }
 
-        public IEnumerable<ProducentDb> GetProducents()
+        public IEnumerable<ProducentDb> GetAll()
         {
             return context.Producents.ToList();
         }
 
-        public ProducentDb GetProducentById(int producentId)
+        public ProducentDb GetItemById(int itemId)
         {
-            return context.Producents.Find(producentId);
+            return context.Producents.Find(itemId);
         }
 
-        public void InsertProducent(ProducentDb producent)
+        public void InsertItem(ProducentDb item)
         {
-            context.Producents.Add(producent);
+            context.Producents.Add(item);
         }
 
-        public void DeleteProducent(int producentId)
+        public void DeleteItem(int itemId)
         {
-            ProducentDb producent = context.Producents.Find(producentId);
+            ProducentDb producent = GetItemById(itemId);
             if (producent != null) context.Producents.Remove(producent);
         }
 
-        public void UpdateProducent(ProducentDb producent)
+        public void UpdateItem(ProducentDb item)
         {
-            context.Entry(producent).State = EntityState.Modified;
+            context.Entry(item).State = EntityState.Modified;
         }
 
         public void Save()
         {
             context.SaveChanges();
-        }
-
-        private bool disposed = false;
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!this.disposed)
-            {
-                if (disposing)
-                {
-                    context.Dispose();
-                }
-            }
-            this.disposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
+        }     
 
     }
 }

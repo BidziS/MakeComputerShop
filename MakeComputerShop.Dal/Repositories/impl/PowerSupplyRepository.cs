@@ -8,7 +8,7 @@ using System.Data.Entity;
 
 namespace MakeComputerShop.Dal.Repositories.impl
 {
-    public class PowerSupplyRepository : IPowerSupplyRepository
+    public class PowerSupplyRepository : IGenericRepository<PowerSupplyDb>
     {
         private ShopContext context;
 
@@ -17,30 +17,32 @@ namespace MakeComputerShop.Dal.Repositories.impl
             this.context = context;
         }
 
-        public void DeletePowerSupply(int powerSupplyId)
-        {
-            PowerSupplyDb powerSupply = GetPowerSupplyById(powerSupplyId);
-            if (powerSupply != null) context.PowerSupplies.Remove(powerSupply);
-        }
-
-        public IEnumerable<PowerSupplyDb> GetPowerSupliesByProducentId(int producentId)
-        {
-            return context.PowerSupplies.Include(m => m.Producent).Where(m => m.ProducentId == producentId);
-        }
-
-        public IEnumerable<PowerSupplyDb> GetPowerSupplies()
+        public IEnumerable<PowerSupplyDb> GetAll()
         {
             return context.PowerSupplies.ToList();
         }
 
-        public PowerSupplyDb GetPowerSupplyById(int powerSupplyId)
+        public PowerSupplyDb GetItemById(int itemId)
         {
-            return context.PowerSupplies.Find(powerSupplyId);
+            return context.PowerSupplies
+                .Include(p => p.Producent)
+                .FirstOrDefault();
         }
 
-        public void InsertPowerSupply(PowerSupplyDb powerSupply)
+        public void InsertItem(PowerSupplyDb item)
         {
-            context.PowerSupplies.Add(powerSupply);
+            context.PowerSupplies.Add(item);
+        }
+
+        public void DeleteItem(int itemId)
+        {
+            PowerSupplyDb powerSupply = GetItemById(itemId);
+            if (powerSupply != null) context.PowerSupplies.Remove(powerSupply);
+        }
+
+        public void UpdateItem(PowerSupplyDb item)
+        {
+            context.Entry(item).State = EntityState.Modified;
         }
 
         public void Save()
@@ -48,9 +50,5 @@ namespace MakeComputerShop.Dal.Repositories.impl
             context.SaveChanges();
         }
 
-        public void UpdatePowerSupply(PowerSupplyDb powerSupply)
-        {
-            context.Entry(powerSupply).State = EntityState.Modified;
-        }
     }
 }

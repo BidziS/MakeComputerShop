@@ -8,51 +8,43 @@ using MakeComputerShop.Bll.Dtos;
 using MakeComputerShop.Dal.Models;
 using MakeComputerShop.Dal.Repositories;
 
-
 namespace MakeComputerShop.Bll.Services.Impl
 {
-    public class DriveService:IDriveService
+    public class DriveService : IGenericService<DriveDto>
     {
-        private IDriveRepository iDriveRepository; 
+        private IGenericRepository<DriveDb> iDriveRepository;
 
-        public DriveService(IDriveRepository iDriveRepository)
+        public DriveService(IGenericRepository<DriveDb> iDriveRepository)
         {
             this.iDriveRepository = iDriveRepository;
         }
 
-        public IEnumerable<DriveDto> GetDrives()
+        public IEnumerable<DriveDto> GetAll()
         {
-            return Mapper.Map<IEnumerable<DriveDb>, IEnumerable<DriveDto>>(iDriveRepository.GetDrives());
+            return Mapper.Map<IEnumerable<DriveDb>, IEnumerable<DriveDto>>(iDriveRepository.GetAll());
         }
 
-        public IEnumerable<DriveDto> GetDrivesByProducentId(int producentId)
+        public DriveDto GetItemById(int driveId)
         {
-            return Mapper.Map<IEnumerable<DriveDb>,IEnumerable <DriveDto>>(iDriveRepository.GetDrivesByProducentId(producentId));
+            return Mapper.Map<DriveDb, DriveDto>(iDriveRepository.GetItemById(driveId));
         }
 
-        public DriveDto GetDriveById(int driveId)
+        public void InsertItem(DriveDto drive)
         {
-            return Mapper.Map<DriveDb, DriveDto>(iDriveRepository.GetDriveById(driveId));
-        }
-        public void InsertDrive(DriveDto drive)
-        {
-            iDriveRepository.InsertDrive(Mapper.Map<DriveDto, DriveDb>(drive));
+            iDriveRepository.InsertItem(Mapper.Map<DriveDto, DriveDb>(drive));
             iDriveRepository.Save();
         }
 
-        public void DeleteDrive(int driveId)
+        public void DeleteItem(int driveId)
         {
-            iDriveRepository.DeleteDrive(driveId);
+            iDriveRepository.DeleteItem(driveId);
             iDriveRepository.Save();
         }
 
-        public void UpdateDrive(DriveDto drive)
+        public void UpdateItem(DriveDto drive)
         {
-            iDriveRepository.UpdateDrive(Mapper.Map<DriveDto, DriveDb>(drive));
+            iDriveRepository.UpdateItem(Mapper.Map<DriveDto, DriveDb>(drive));
             iDriveRepository.Save();
         }
-
-        
-
     }
 }

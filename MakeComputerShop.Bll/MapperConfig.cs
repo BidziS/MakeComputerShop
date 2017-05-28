@@ -16,6 +16,7 @@ namespace MakeComputerShop.Bll
         public static void Configuration()
         {
             Mapper.Initialize(cfg => {
+
                 cfg.CreateMap<ProducentDto, ProducentDb>();
                 cfg.CreateMap<ProducentDb, ProducentDto>();
 
@@ -31,17 +32,36 @@ namespace MakeComputerShop.Bll
                 cfg.CreateMap<RamDto, RamDb>();
                 cfg.CreateMap<RamDb, RamDto>();
 
-                cfg.CreateMap<DriveDto,DriveDb>();
+                cfg.CreateMap<UserDto, UserDb>();
+                cfg.CreateMap<UserDb, UserDto>();
+
+                cfg.CreateMap<ComputerCasingDb, ComputerCasingDto>();
+                cfg.CreateMap<ComputerCasingDto, ComputerCasingDb>();
+
                 cfg.CreateMap<DriveDb, DriveDto>();
+                cfg.CreateMap<DriveDto, DriveDb>();
 
-                cfg.CreateMap<GraphicCardDto, GraphicsCardDb>();
-                cfg.CreateMap<GraphicsCardDb, GraphicCardDto>();
+                cfg.CreateMap<GraphicsCardDb, GraphicsCardDto>();
+                cfg.CreateMap<GraphicsCardDto, GraphicsCardDb>();
 
-                cfg.CreateMap<NetworkCardDto, NetworkCardDb>();
+                cfg.CreateMap<HardDriveDto, HardDriveDb>();
+                cfg.CreateMap<HardDriveDb, HardDriveDto>();
+
                 cfg.CreateMap<NetworkCardDb, NetworkCardDto>();
+                cfg.CreateMap<NetworkCardDto, NetworkCardDb>();
 
-                cfg.CreateMap<SoundCardDto, SoundCardDb>();
+                cfg.CreateMap<PowerSupplyDto, PowerSupplyDb>();
+                cfg.CreateMap<PowerSupplyDb, PowerSupplyDto>();
+
+                cfg.CreateMap<ProcesorDb, ProcesorDto>();
+                cfg.CreateMap<ProcesorDto, ProcesorDb>();
+
                 cfg.CreateMap<SoundCardDb, SoundCardDto>();
+                cfg.CreateMap<SoundCardDto, SoundCardDb>();
+
+                cfg.CreateMap<ComputerDb, ComputerDto>();
+                cfg.CreateMap<ComputerDto, ComputerDb>()
+                ;
             });
         }
     }

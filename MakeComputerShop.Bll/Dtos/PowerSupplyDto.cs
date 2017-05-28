@@ -1,5 +1,4 @@
-﻿using MakeComputerShop.Dal.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +8,8 @@ namespace MakeComputerShop.Bll.Dtos
 {
     public class PowerSupplyDto:BaseDto
     {
-        public ProducentDb Producent { get; set; }
-        
-        public int ProducentId { get; set; }
-        
-        public byte Power { get; set; }
+        public ProducentDto Producent { get; set; }
+
+        public int Power { get; set; }
     }
 }

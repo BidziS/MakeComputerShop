@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Reflection;
 using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
 using MakeComputerShop.Bll;
+using MakeComputerShop.Web.Models;
+using Module = Autofac.Module;
 
 namespace MakeComputerShop.Web
 {
@@ -15,13 +14,13 @@ namespace MakeComputerShop.Web
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterControllers(typeof(WebApiApplication).Assembly);
+            builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
             builder.RegisterModule(new ServicesModule());
 
             builder.RegisterModule(new RepositoriesModule());
 
-            builder.RegisterControllers(typeof(WebApiApplication).Assembly);
+            builder.RegisterModule(new ApplicationDbModule());
 
             var container = builder.Build();
 
@@ -29,6 +28,20 @@ namespace MakeComputerShop.Web
             // Set the dependency resolver for MVC.
             var mvcResolver = new AutofacDependencyResolver(container);
             DependencyResolver.SetResolver(mvcResolver);
+        }
+
+       
+    }
+
+    public class ApplicationDbModule : Module
+    {
+        protected override void Load(ContainerBuilder builder)
+        {
+            Assembly assembly = typeof(ApplicationDbContext).GetTypeInfo().Assembly;
+
+
+            builder.RegisterType<ApplicationDbContext>().As<ApplicationDbContext>();
+
         }
     }
 }
