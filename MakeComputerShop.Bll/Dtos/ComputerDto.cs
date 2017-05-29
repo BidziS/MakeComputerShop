@@ -31,26 +31,5 @@ namespace MakeComputerShop.Bll.Dtos
         public NetworkCardDto NetworkCard { get; set; }
 
         public SoundCardDto SoundCard { get; set; }
-
-        public override bool Equals(object obj)
-        {
-            var toCompareWith = obj as ComputerDto;
-            if (toCompareWith == null)
-                return false;
-            return this.Id == toCompareWith.Id &&
-                   this.Descripton == toCompareWith.Descripton &&
-                   this.Motherboard == toCompareWith.Motherboard &&
-                   this.Procesor == toCompareWith.Procesor &&
-                   this.Ram == toCompareWith.Ram &&
-                   this.PowerSupply == toCompareWith.PowerSupply &&
-                   this.HardDrive == toCompareWith.HardDrive &&
-                   this.ComputerCasing == toCompareWith.ComputerCasing &&
-                   this.Drive == toCompareWith.Drive &&
-                   this.GraphicsCard == toCompareWith.GraphicsCard &&
-                   this.NetworkCard == toCompareWith.NetworkCard &&
-                   this.SoundCard == toCompareWith.SoundCard;
-
-
-        }
     }
 }

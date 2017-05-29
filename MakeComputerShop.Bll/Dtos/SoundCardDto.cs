@@ -13,16 +13,5 @@ namespace MakeComputerShop.Bll.Dtos
         public string Interface { get; set; }
 
         public float SoundSystem { get; set; }
-        public override bool Equals(object obj)
-        {
-            var toCompareWith = obj as SoundCardDto;
-            if (toCompareWith == null)
-                return false;
-            return this.Id == toCompareWith.Id &&
-                   this.Name == toCompareWith.Name &&
-                   this.Interface == toCompareWith.Interface &&
-                   this.SoundSystem == toCompareWith.SoundSystem;
-
-        }
     }
 }

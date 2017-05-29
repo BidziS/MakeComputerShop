@@ -13,15 +13,5 @@ namespace MakeComputerShop.Bll.Dtos
         public string Email { get; set; }
 
         public ComputerDto Computer { get; set; }
-
-        public override bool Equals(object obj)
-        {
-            var toCompareWith = obj as UserDto;
-            if (toCompareWith == null)
-                return false;
-            return this.Id == toCompareWith.Id &&
-                   this.Email == toCompareWith.Email &&
-                   this.Computer == toCompareWith.Computer;
-        }
     }
 }

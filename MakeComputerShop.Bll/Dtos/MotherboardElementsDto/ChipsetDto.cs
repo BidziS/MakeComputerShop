@@ -11,15 +11,5 @@ namespace MakeComputerShop.Bll.Dtos.MotherboardElementsDto
         public int Id { get; set; }
 
         public string Name { get; set; }
-
-        public override bool Equals(object obj)
-        {
-            var toCompareWith = obj as ChipsetDto;
-            if (toCompareWith == null)
-                return false;
-            return this.Id == toCompareWith.Id &&
-                   this.Name == toCompareWith.Name;
-
-        }
     }
 }

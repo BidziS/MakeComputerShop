@@ -15,16 +15,5 @@ namespace MakeComputerShop.Bll.Dtos
         public double Price { get; set; }
 
         public string ImageUrl { get; set; }
-        public override bool Equals(object obj)
-        {
-            var toCompareWith = obj as BaseDto;
-            if (toCompareWith == null)
-                return false;
-            return this.Id == toCompareWith.Id &&
-                   this.Name == toCompareWith.Name &&
-                   this.Price == toCompareWith.Price &&
-                   this.ImageUrl == toCompareWith.ImageUrl;
-
-        }
     }
 }

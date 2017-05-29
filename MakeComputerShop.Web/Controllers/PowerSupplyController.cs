@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MakeComputerShop.Bll.Dtos;
+using MakeComputerShop.Bll.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,15 +10,48 @@ namespace MakeComputerShop.Web.Controllers
 {
     public class PowerSupplyController : Controller
     {
+        IGenericService<PowerSupplyDto> iPowerSupplyService;
+        private IGenericService<ComputerDto> iComputerService;
+        private IUserService iUserService;
+
+
+        public PowerSupplyController(IGenericService<PowerSupplyDto> iPowerSupplyService,
+                                        IGenericService<ComputerDto> iComputerService, IUserService iUserService)
+        {
+            this.iPowerSupplyService = iPowerSupplyService;
+            this.iUserService = iUserService;
+            this.iComputerService = iComputerService;
+        }
+
         // GET: PowerSupply
         public ActionResult All()
         {
-            return View();
+            var powerSupplies = iPowerSupplyService.GetAll();
+
+            return View(powerSupplies);
         }
 
         public ActionResult Details(int id)
         {
-            return View();
+            var powerSupply = iPowerSupplyService.GetItemById(id);
+
+            return View(powerSupply);
+        }
+        public RedirectToRouteResult AddToShopCart(int id)
+        {
+            var user = System.Web.HttpContext.Current.User.Identity.Name;
+
+            var userFromBase = iUserService.GetItemByEmail(user);
+
+            var computer = userFromBase.Computer;
+
+            computer.PowerSupply = iPowerSupplyService.GetItemById(id);
+
+            iComputerService.UpdateItem(computer);
+
+            return RedirectToAction("ShopCart", "ShopCart");
+
+
         }
     }
 }

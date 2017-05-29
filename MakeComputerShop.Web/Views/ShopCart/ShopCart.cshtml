@@ -1,5 +1,4 @@
-﻿@using System.Diagnostics.CodeAnalysis
-@model MakeComputerShop.Bll.Dtos.ComputerDto
+﻿@model MakeComputerShop.Bll.Dtos.ComputerDto
 @{
     ViewBag.Title = "ShopCart";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -86,7 +85,7 @@ else
 <hr />
 @if (Model.PowerSupply != null)
 {
-
+    @Html.Partial("_PowerSupplyListRow", Model.PowerSupply)
 }
 else
 {
@@ -191,5 +190,6 @@ else
     </div>
 }
 <div class="order">
-    <button class="btn btn-primary btn-order">Zamów</button>
+    @Html.ActionLink("Zamów", "Invoice", "ShopCart", null, new { @class = "btn btn-primary btn-order" })
 </div>
+    
