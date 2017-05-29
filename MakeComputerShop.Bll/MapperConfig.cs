@@ -42,6 +42,9 @@ namespace MakeComputerShop.Bll
 
                 cfg.CreateMap<SoundCardDto, SoundCardDb>();
                 cfg.CreateMap<SoundCardDb, SoundCardDto>();
+
+                cfg.CreateMap<ComputerCasingDto, ComputerCasingDb>();
+                cfg.CreateMap<ComputerCasingDb,ComputerCasingDto>();
             });
         }
     }

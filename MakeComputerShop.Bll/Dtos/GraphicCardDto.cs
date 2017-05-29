@@ -17,5 +17,18 @@ namespace MakeComputerShop.Bll.Dtos
         public int DataBusBit { get; set; }
 
         public string Connector { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            var toCompareWith = obj as GraphicCardDto;
+            if (toCompareWith == null)
+                return false;
+            return this.Id == toCompareWith.Id &&
+                   this.Name == toCompareWith.Name &&
+                   this.ChipsetName == toCompareWith.ChipsetName &&
+                   this.MemorySize == toCompareWith.MemorySize &&
+                   this.DataBusBit == toCompareWith.DataBusBit &&
+                   this.Connector == toCompareWith.Connector;
+        }
     }
 }

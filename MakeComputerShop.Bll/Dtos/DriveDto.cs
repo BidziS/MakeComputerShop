@@ -19,6 +19,16 @@ namespace MakeComputerShop.Bll.Dtos
 
         public string Interface { get; set; }
 
-
+        public override bool Equals(object obj)
+        {
+            var toCompareWith = obj as DriveDto;
+            if (toCompareWith == null)
+                return false;
+            return this.Id == toCompareWith.Id &&
+                this.Name == toCompareWith.Name &&
+                this.DriverTypes == toCompareWith.DriverTypes &&
+                this.AccessTime == toCompareWith.AccessTime &&
+                this.Interface == toCompareWith.Interface;
+        }
     }
 }

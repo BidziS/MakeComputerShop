@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using MakeComputerShop.Bll.Dtos;
 using MakeComputerShop.Bll.Services;
+using MakeComputerShop.Bll.Services.Impl;
+using MakeComputerShop.Dal;
+using MakeComputerShop.Dal.Repositories;
 
 namespace MakeComputerShop.Web.Controllers
 {
@@ -17,9 +20,7 @@ namespace MakeComputerShop.Web.Controllers
             this.iProducentService = iProducentService;
         }
 
-        public ProducentController()
-        {
-        }
+        
 
         // GET: Producent
         public ActionResult Producents()

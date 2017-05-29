@@ -20,5 +20,21 @@ namespace MakeComputerShop.Bll.Dtos
         public byte Height { get; set; }
         
         public byte Depth { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            var toCompareWith = obj as ComputerCasingDto;
+            if (toCompareWith == null)
+                return false;
+            return this.Id == toCompareWith.Id &&
+                   this.Name == toCompareWith.Name &&
+                   this.CasingType == toCompareWith.CasingType &&
+                   this.ProducentId == toCompareWith.ProducentId &&
+                   this.Width == toCompareWith.Width &&
+                   this.Height == toCompareWith.Height &&
+                   this.Depth == toCompareWith.Depth;
+
+
+        }
     }
 }
