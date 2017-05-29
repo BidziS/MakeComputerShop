@@ -37,7 +37,7 @@ namespace MakeComputerShop.Web.Controllers
             return View(processor);
         }
 
-        public RedirectToRouteResult AddToShopCart(ProcesorDto procesor)
+        public RedirectToRouteResult AddToShopCart(int id)
         {
             var user = System.Web.HttpContext.Current.User.Identity.Name;
 
@@ -51,7 +51,7 @@ namespace MakeComputerShop.Web.Controllers
 
             //iDriveService.UpdateItem(drive);
 
-            computer.Procesor = procesor;
+            computer.Procesor = iProcessorService.GetItemById(id);
 
             iComputerService.UpdateItem(computer);
 
