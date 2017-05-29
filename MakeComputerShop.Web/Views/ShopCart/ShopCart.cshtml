@@ -8,55 +8,188 @@
 
 <hr/>
 
-@if (Model.Drive == null && Model.ComputerCasing == null
-     && Model.Descripton == null && Model.GraphicsCard == null
-     && Model.HardDrive == null && Model.Motherboard == null
-     && Model.NetworkCard == null && Model.PowerSupply == null
-     && Model.Procesor == null && Model.Ram == null && Model.SoundCard == null)
+
+<h4>Procesor</h4>
+<hr />
+@if (Model.Procesor != null)
 {
-    <h5>Brak sprzętu</h5>
+    @Html.Partial("_ProcesorListRow", Model.Procesor)
 }
 else
 {
-    if (Model.Procesor != null)
-    {
-        @Html.Partial("_ProcesorListRow", Model.Procesor)
-    }
-    if (Model.Motherboard != null)
-    {
-        @Html.Partial("_MotherboardListRow",Model.Motherboard)
-    }
-    if (Model.Ram != null)
-    {
-        @Html.Partial("_RamListRow", Model.Ram)
-    }
-    if (Model.HardDrive != null)
-    {
-        @Html.Partial("_HardDriveListRow", Model.HardDrive)
-    }
-    if (Model.PowerSupply != null)
-    {
+    <div class="item-homepage-empty">
+        <div class="flex-center-empty">
+            Brak
+        </div>
+        <div class="order">
+            @Html.ActionLink("Dodaj procesor", "All", "Processor", new { id = Model.Id }, new { @class = "btn btn-success" })
+        </div>
 
-    }
-    if (Model.ComputerCasing != null)
-    {
-        @Html.Partial("_ComputerCasingListRow", Model.ComputerCasing)
-    }
-    if (Model.GraphicsCard != null)
-    {
-        @Html.Partial("_GraphicsCardListRow", Model.GraphicsCard)
-    }
-    if (Model.Drive != null)
-    {
-        @Html.Partial("_DriveListRow", Model.Drive)
-    }
-    if (Model.NetworkCard != null)
-    {
-        @Html.Partial("_NetworkCardListRow", Model.NetworkCard)
-    }
-    if (Model.SoundCard != null)
-    {
-        @Html.Partial("_SoundCardListRow", Model.SoundCard)
-    }
+    </div>
+}
+<h4>Płyta główna</h4>
+<hr />
+@if (Model.Motherboard != null)
+{
+    @Html.Partial("_MotherboardListRow",Model.Motherboard)
+}
+else
+{
+    <div class="item-homepage-empty">
+        <div class="flex-center-empty">
+            Brak
+        </div>
+        <div class="order">
+            @Html.ActionLink("Dodaj płytę główną", "All", "Motherboard", new { id = Model.Id }, new { @class = "btn btn-success" })
+        </div>
+            
+    </div>
+}
+<h4>Ram</h4>
+<hr />
+@if (Model.Ram != null)
+{
+    @Html.Partial("_RamListRow", Model.Ram)
+}
+else
+{
+    <div class="item-homepage-empty">
+        <div class="flex-center-empty">
+            Brak
+        </div>
+        <div class="order">
+            @Html.ActionLink("Dodaj ram", "All", "Ram", new { id = Model.Id }, new { @class = "btn btn-success" })
+        </div>
+
+    </div>
+}
+<h4>Dysk twardy</h4>
+<hr />
+@if (Model.HardDrive != null)
+{
+    @Html.Partial("_HardDriveListRow", Model.HardDrive)
+}
+else
+{
+    <div class="item-homepage-empty">
+        <div class="flex-center-empty">
+            Brak
+        </div>
+        <div class="order">
+            @Html.ActionLink("Dysk twardy", "All", "HardDrive", new { id = Model.Id }, new { @class = "btn btn-success" })
+        </div>
+
+    </div>
+}
+<h4>Zasilacz</h4>
+<hr />
+@if (Model.PowerSupply != null)
+{
 
 }
+else
+{
+    <div class="item-homepage-empty">
+        <div class="flex-center-empty">
+            Brak
+        </div>
+        <div class="order">
+            @Html.ActionLink("Dodaj zasilacz", "All", "PowerSupply", new { id = Model.Id }, new { @class = "btn btn-success" })
+        </div>
+            
+    </div>
+}
+<h4>Obudowa</h4>
+<hr />
+@if (Model.ComputerCasing != null)
+{
+    @Html.Partial("_ComputerCasingListRow", Model.ComputerCasing)
+}
+else
+{
+    <div class="item-homepage-empty">
+        <div class="flex-center-empty">
+            Brak
+        </div>
+        <div class="order">
+            @Html.ActionLink("Dodaj obudowę", "All", "ComputerCasing", new { id = Model.Id }, new { @class = "btn btn-success" })
+        </div>
+
+    </div>
+}
+<h4>Karta graficzna</h4>
+<hr />
+@if (Model.GraphicsCard != null)
+{
+    @Html.Partial("_GraphicsCardListRow", Model.GraphicsCard)
+}
+else
+{
+    <div class="item-homepage-empty">
+        <div class="flex-center-empty">
+            Brak
+        </div>
+        <div class="order">
+            @Html.ActionLink("Dodaj kartę graficzną", "All", "GraphicsCard", new { id = Model.Id }, new { @class = "btn btn-success" })
+        </div>
+
+    </div>
+}
+<h4>Napęd</h4>
+<hr />
+@if (Model.Drive != null)
+{
+    @Html.Partial("_DriveListRow", Model.Drive)
+}
+else
+{
+    <div class="item-homepage-empty">
+        <div class="flex-center-empty">
+            Brak
+        </div>
+        <div class="order">
+            @Html.ActionLink("Dodaj napęd", "All", "Drive", new { id = Model.Id }, new { @class = "btn btn-success" })
+        </div>
+
+    </div>
+}
+<h4>Karta sieciowa</h4>
+<hr />
+@if (Model.NetworkCard != null)
+{
+    @Html.Partial("_NetworkCardListRow", Model.NetworkCard)
+}
+else
+{
+    <div class="item-homepage-empty">
+        <div class="flex-center-empty">
+            Brak
+        </div>
+        <div class="order">
+            @Html.ActionLink("Dodaj kartę sieciową", "All", "NetworkCard", new { id = Model.Id }, new { @class = "btn btn-success" })
+        </div>
+
+    </div>
+}
+<h4>Karta dzwiękowa</h4>
+<hr />
+@if (Model.SoundCard != null)
+{
+    @Html.Partial("_SoundCardListRow", Model.SoundCard)
+}
+else
+{
+    <div class="item-homepage-empty">
+        <div class="flex-center-empty">
+            Brak
+        </div>
+        <div class="order">
+            @Html.ActionLink("Dodaj kartę dzwiękową", "All", "SoundCard", new { id = Model.Id }, new { @class = "btn btn-success" })
+        </div>
+
+    </div>
+}
+<div class="order">
+    <button class="btn btn-primary btn-order">Zamów</button>
+</div>
+    

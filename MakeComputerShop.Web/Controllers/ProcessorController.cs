@@ -55,7 +55,7 @@ namespace MakeComputerShop.Web.Controllers
 
             iComputerService.UpdateItem(computer);
 
-            return RedirectToAction("All");
+            return RedirectToAction("ShopCart", "ShopCart");
 
 
         }

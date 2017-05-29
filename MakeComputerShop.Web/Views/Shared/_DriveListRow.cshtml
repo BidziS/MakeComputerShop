@@ -16,8 +16,14 @@
         <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5">
             <div class="flex-center">
                 @Html.ActionLink("szczegóły", "Details", "Drive", new { id = Model.Id }, new { @class = "btn" })
-                @Html.ActionLink("do koszyka", "AddToShopCart", "Drive", new { id = Model.Id }, new { @class = "btn" })
-
+                @if ((bool?)ViewBag.IsShop == true)
+                {
+                    @Html.ActionLink("zmień", "All", "Drive", new { id = Model.Id }, new { @class = "btn" })
+                }
+                else
+                {
+                    @Html.ActionLink("do koszyka", "AddToShopCart", "Drive", new { id = Model.Id }, new { @class = "btn" })
+                }
             </div>
 
         </div>
