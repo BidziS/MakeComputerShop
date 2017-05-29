@@ -8,11 +8,11 @@ using MakeComputerShop.Dal.Models;
 
 namespace MakeComputerShop.Dal.Repositories.impl
 {
-    public class SoundCardReposirtory : IGenericRepository<SoundCardDb>
+    public class SoundCardRepository : IGenericRepository<SoundCardDb>
     {
         private ShopContext context;
 
-        public SoundCardReposirtory(ShopContext context)
+        public SoundCardRepository(ShopContext context)
         {
             this.context = context;
         }
@@ -24,7 +24,7 @@ namespace MakeComputerShop.Dal.Repositories.impl
 
         public SoundCardDb GetItemById(int itemId)
         {
-            return context.SoundCards.Find(itemId);
+            return context.SoundCards.Include(sc => sc.Producent).SingleOrDefault(sc => sc.Id == itemId);
         }
 
         public void InsertItem(SoundCardDb item)

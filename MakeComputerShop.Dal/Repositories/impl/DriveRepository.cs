@@ -24,7 +24,7 @@ namespace MakeComputerShop.Dal.Repositories.impl
 
         public DriveDb GetItemById(int itemId)
         {
-            return context.Drives.Include(d => d.Producent).FirstOrDefault();
+            return context.Drives.Include(d => d.Producent).FirstOrDefault(d => d.Id ==itemId);
         }
 
         public void InsertItem(DriveDb item)

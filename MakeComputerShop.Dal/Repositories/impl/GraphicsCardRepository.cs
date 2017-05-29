@@ -29,7 +29,7 @@ namespace MakeComputerShop.Dal.Repositories.impl
             return context.GraphicsCards
                 .Include(g => g.Chipset)
                 .Include(g => g.Producent)
-                .FirstOrDefault();
+                .FirstOrDefault(g => g.Id == itemId);
         }
 
         public void InsertItem(GraphicsCardDb item)

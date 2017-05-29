@@ -11,10 +11,14 @@ namespace MakeComputerShop.Web.Controllers
     public class DriveController : Controller
     {
         IGenericService<DriveDto> iDriveService;
+        private IGenericService<ComputerDto> iComputerService;
+        private IUserService iUserService;
 
-        public DriveController(IGenericService<DriveDto> iDriveService)
+        public DriveController(IGenericService<DriveDto> iDriveService, IGenericService<ComputerDto> iComputerService, IUserService iUserService)
         {
             this.iDriveService = iDriveService;
+            this.iComputerService = iComputerService;
+            this.iUserService = iUserService;
         }
 
         // GET: Drive
@@ -30,6 +34,22 @@ namespace MakeComputerShop.Web.Controllers
             var drive = iDriveService.GetItemById(id);
 
             return View(drive);
+        }
+        public RedirectToRouteResult AddToShopCart(int id)
+        {
+            var user = System.Web.HttpContext.Current.User.Identity.Name;
+
+            var userFromBase = iUserService.GetItemByEmail(user);
+
+            var computer = userFromBase.Computer;
+
+            computer.Drive = iDriveService.GetItemById(id);
+
+            iComputerService.UpdateItem(computer);
+
+            return RedirectToAction("All");
+
+
         }
     }
 }

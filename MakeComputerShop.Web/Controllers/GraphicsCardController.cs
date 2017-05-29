@@ -11,10 +11,15 @@ namespace MakeComputerShop.Web.Controllers
     public class GraphicsCardController : Controller
     {
         IGenericService<GraphicsCardDto> iGraphicsCardService;
+        private IGenericService<ComputerDto> iComputerService;
+        private IUserService iUserService;
 
-        public GraphicsCardController(IGenericService<GraphicsCardDto> iGraphicsCardService)
+        public GraphicsCardController(IGenericService<GraphicsCardDto> iGraphicsCardService, 
+            IGenericService<ComputerDto> iComputerService, IUserService iUserService )
         {
             this.iGraphicsCardService = iGraphicsCardService;
+            this.iComputerService = iComputerService;
+            this.iUserService = iUserService;
         }
 
         // GET: GraphicsCard
@@ -30,6 +35,22 @@ namespace MakeComputerShop.Web.Controllers
             var graphicsCard = iGraphicsCardService.GetItemById(id);
 
             return View(graphicsCard);
+        }
+        public RedirectToRouteResult AddToShopCart(int id)
+        {
+            var user = System.Web.HttpContext.Current.User.Identity.Name;
+
+            var userFromBase = iUserService.GetItemByEmail(user);
+
+            var computer = userFromBase.Computer;
+
+            computer.GraphicsCard = iGraphicsCardService.GetItemById(id);
+
+            iComputerService.UpdateItem(computer);
+
+            return RedirectToAction("All");
+
+
         }
     }
 }

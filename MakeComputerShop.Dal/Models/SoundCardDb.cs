@@ -10,9 +10,7 @@ namespace MakeComputerShop.Dal.Models
     public class SoundCardDb:BaseDb
     {
         public ProducentDb Producent { get; set; }
-
-        
-
+      
         [Required]
         public int ProducentId { get; set; }
 

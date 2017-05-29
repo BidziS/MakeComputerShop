@@ -177,6 +177,7 @@ namespace MakeComputerShop.Web.Controllers
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     iUserService.InsertItem(new UserDto { Email = user.Email });
 
+
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
@@ -389,9 +390,11 @@ namespace MakeComputerShop.Web.Controllers
                     if (result.Succeeded)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        iUserService.InsertItem(new UserDto() { Email = model.Email });
                         return RedirectToLocal(returnUrl);
                     }
                 }
+                
                 AddErrors(result);
             }
 

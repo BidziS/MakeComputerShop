@@ -24,7 +24,7 @@ namespace MakeComputerShop.Dal.Repositories.impl
 
         public NetworkCardDb GetItemById(int itemId)
         {
-            return context.NetworkCards.Include(n => n.Producent).FirstOrDefault();
+            return context.NetworkCards.Include(n => n.Producent).FirstOrDefault(nc => nc.Id == itemId);
         }
 
         public void InsertItem(NetworkCardDb item)

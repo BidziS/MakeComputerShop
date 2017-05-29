@@ -350,6 +350,8 @@
     <Content Include="Views\Shared\_NetworkCardListRow.cshtml" />
     <Content Include="Views\Shared\_RamListRow.cshtml" />
     <Content Include="Views\Shared\_RamDetails.cshtml" />
+    <Content Include="Views\Shared\_SoundCardDetails.cshtml" />
+    <Content Include="Views\Shared\_SoundCardListRow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

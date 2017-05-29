@@ -11,10 +11,15 @@ namespace MakeComputerShop.Web.Controllers
     public class RamController : Controller
     {
         private IGenericService<RamDto> iRamService;
+        private IGenericService<ComputerDto> iComputerService;
+        private IUserService iUserService;
 
-        public RamController(IGenericService<RamDto> iRamService)
+        public RamController(IGenericService<RamDto> iRamService,
+            IGenericService<ComputerDto> iComputerService, IUserService iUserService)
         {
             this.iRamService = iRamService;
+            this.iComputerService = iComputerService;
+            this.iUserService = iUserService;
         }
 
         // GET: Ram
@@ -30,6 +35,20 @@ namespace MakeComputerShop.Web.Controllers
             var ram = iRamService.GetItemById(id);
 
             return View(ram);
+        }
+        public RedirectToRouteResult AddToShopCart(int id)
+        {
+            var user = System.Web.HttpContext.Current.User.Identity.Name;
+
+            var userFromBase = iUserService.GetItemByEmail(user);
+
+            var computer = userFromBase.Computer;
+
+            computer.Ram = iRamService.GetItemById(id);
+
+            iComputerService.UpdateItem(computer);
+
+            return RedirectToAction("All");
         }
     }
 }
