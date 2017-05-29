@@ -15,8 +15,9 @@
         </div>
         <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5">
             <div class="flex-center">
-                @Html.ActionLink("szczegóły", "Details", "ComputerCasing", new { id = Model.Id }, new { @class = "btn" })
-                @*@Html.ActionLink("do koszyka", "AddToShopCart", "Processor", new { Id = C.Id, Name = Model.Name }, new { @class = "btn" })*@
+                @Model.Id;
+                @Html.ActionLink("szczegóły", "Details", "ComputerCasing", new {id = Model.Id}, new {@class = "btn"})
+                @Html.ActionLink("do koszyka", "AddToShopCart", "ComputerCasing", new {id = Model.Id}, new {@class = "btn"})
 
             </div>
 

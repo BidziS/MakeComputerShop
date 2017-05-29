@@ -46,7 +46,15 @@ namespace MakeComputerShop.Dal.Repositories.impl
 
         public void UpdateItem(ComputerDb item)
         {
-            context.Entry(item).State = EntityState.Modified;
+            var entity = context.Computers.Where(c => c.Id == item.Id).AsQueryable().FirstOrDefault();
+            if (entity == null)
+            {
+                context.Computers.Add(item);
+            }
+            else
+            {
+                context.Entry(entity).CurrentValues.SetValues(item);
+            }
             Save();
         }
 

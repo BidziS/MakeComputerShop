@@ -11,10 +11,16 @@ namespace MakeComputerShop.Web.Controllers
     public class ComputerCasingController : Controller
     {
         IGenericService<ComputerCasingDto> iComputerCaseService;
+        private IGenericService<ComputerDto> iComputerService;
+        private IUserService iUserService;
 
-        public ComputerCasingController(IGenericService<ComputerCasingDto> iComputerCaseService)
+
+        public ComputerCasingController(IGenericService<ComputerCasingDto> iComputerCaseService, 
+                                        IGenericService<ComputerDto> iComputerService, IUserService iUserService)
         {
             this.iComputerCaseService = iComputerCaseService;
+            this.iUserService = iUserService;
+            this.iComputerService = iComputerService;
         }
 
         // GET: ComputerCasing
@@ -30,6 +36,22 @@ namespace MakeComputerShop.Web.Controllers
             var computerCase = iComputerCaseService.GetItemById(id);
 
             return View(computerCase);
+        }
+        public RedirectToRouteResult AddToShopCart(int id)
+        {
+            var user = System.Web.HttpContext.Current.User.Identity.Name;
+
+            var userFromBase = iUserService.GetItemByEmail(user);
+
+            var computer = userFromBase.Computer;
+
+            computer.ComputerCasing = iComputerCaseService.GetItemById(id);
+
+            iComputerService.UpdateItem(computer);
+
+            return RedirectToAction("All");
+
+
         }
     }
 }

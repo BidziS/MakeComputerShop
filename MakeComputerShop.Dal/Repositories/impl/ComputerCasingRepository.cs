@@ -25,7 +25,7 @@ namespace MakeComputerShop.Dal.Repositories.impl
 
         public ComputerCasingDb GetItemById(int itemId)
         {
-            return context.ComputerCasings.Include(cc => cc.Producent).FirstOrDefault();
+            return context.ComputerCasings.Include(cc => cc.Producent).FirstOrDefault(cc => cc.Id == itemId);
         }
 
         public void InsertItem(ComputerCasingDb item)
@@ -41,7 +41,16 @@ namespace MakeComputerShop.Dal.Repositories.impl
 
         public void UpdateItem(ComputerCasingDb item)
         {
-            context.Entry(item).State = EntityState.Modified;
+            var entity = context.ComputerCasings.Where(c => c.Id == item.Id).AsQueryable().FirstOrDefault();
+            if (entity == null)
+            {
+                context.ComputerCasings.Add(item);
+            }
+            else
+            {
+                context.Entry(entity).CurrentValues.SetValues(item);
+            }
+            Save();
         }
 
         public void Save()

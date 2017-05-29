@@ -13,16 +13,13 @@ namespace MakeComputerShop.Web.Controllers
         private IGenericService<ProcesorDto> iProcessorService;
         IGenericService<ComputerDto> iComputerService;
         IUserService iUserService;
-        IGenericService<DriveDto> iDriveService;
 
         public ProcessorController(IGenericService<ProcesorDto> iProcessorService, 
-            IGenericService<ComputerDto> iComputerService, IUserService iUserService,
-            IGenericService<DriveDto> iDriveService)
+            IGenericService<ComputerDto> iComputerService, IUserService iUserService)
         {
             this.iProcessorService = iProcessorService;
             this.iComputerService = iComputerService;
             this.iUserService = iUserService;
-            this.iDriveService = iDriveService;
         }
 
         // GET: Processor
