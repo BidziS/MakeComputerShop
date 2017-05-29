@@ -19,6 +19,7 @@
                 @if ((bool?)ViewBag.IsShop == true)
                 {
                     @Html.ActionLink("zmień", "All", "SoundCard", new { id = Model.Id }, new { @class = "btn" })
+                    @Html.ActionLink("usuń", "AddToShopCart", "SoundCard", new { id = 0 }, new { @class = "btn btn-danger" })
                 }
                 else
                 {
