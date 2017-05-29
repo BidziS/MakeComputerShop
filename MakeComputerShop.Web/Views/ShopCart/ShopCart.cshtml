@@ -18,8 +18,45 @@
 }
 else
 {
+    if (Model.Procesor != null)
+    {
+        @Html.Partial("_ProcesorListRow", Model.Procesor)
+    }
+    if (Model.Motherboard != null)
+    {
+        @Html.Partial("_MotherboardListRow",Model.Motherboard)
+    }
+    if (Model.Ram != null)
+    {
+        @Html.Partial("_RamListRow", Model.Ram)
+    }
+    if (Model.HardDrive != null)
+    {
+        @Html.Partial("_HardDriveListRow", Model.HardDrive)
+    }
+    if (Model.PowerSupply != null)
+    {
 
-    @Html.Partial("_ProcesorListRow", Model.Procesor)
+    }
+    if (Model.ComputerCasing != null)
+    {
+        @Html.Partial("_ComputerCasingListRow", Model.ComputerCasing)
+    }
+    if (Model.GraphicsCard != null)
+    {
+        @Html.Partial("_GraphicsCardListRow", Model.GraphicsCard)
+    }
+    if (Model.Drive != null)
+    {
+        @Html.Partial("_DriveListRow", Model.Drive)
+    }
+    if (Model.NetworkCard != null)
+    {
+        @Html.Partial("_NetworkCardListRow", Model.NetworkCard)
+    }
+    if (Model.SoundCard != null)
+    {
+        @Html.Partial("_SoundCardListRow", Model.SoundCard)
+    }
 
-            
 }

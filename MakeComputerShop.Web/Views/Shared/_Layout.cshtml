@@ -25,9 +25,30 @@
             
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Computers", "All", "Computer")</li>
-                    <li>@Html.ActionLink("Procesors", "All", "Processor")</li>
+                    <li>@Html.ActionLink("Strona główna", "Index", "Home")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Części komputerowe</a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Obudowy komputerowe", "All", "ComputerCasing")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Procesory", "All", "Processor")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Napędy", "All", "Drive")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Dyski twarde", "All", "HardDrive")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("PŁyty główne", "All", "Motherboard")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Karty sieciowe", "All", "NetworkCard")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Zasilacze", "All", "PowerSupply")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Pamięci Ram", "All", "Ram")</li>
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Karty dzwiękowe", "All", "SoundCard")</li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("O nas", "About", "Home")</li>
                 </ul>
                 
                 @Html.Partial("_LoginPartial")

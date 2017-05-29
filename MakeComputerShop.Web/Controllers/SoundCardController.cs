@@ -36,5 +36,20 @@ namespace MakeComputerShop.Web.Controllers
 
             return View(soundCard);
         }
+
+        public RedirectToRouteResult AddToShopCart(int id)
+        {
+            var user = System.Web.HttpContext.Current.User.Identity.Name;
+
+            var userFromBase = iUserService.GetItemByEmail(user);
+
+            var computer = userFromBase.Computer;
+
+            computer.SoundCard = iSoundCardService.GetItemById(id);
+
+            iComputerService.UpdateItem(computer);
+
+            return RedirectToAction("All");
+        }
     }
 }

@@ -20,6 +20,8 @@ namespace MakeComputerShop.Web.Controllers
         // GET: ShopCart
         public ActionResult ShopCart()
         {
+            ViewBag.IsShop = true;
+
             var user = System.Web.HttpContext.Current.User.Identity.Name;
 
             var userFromBase = iUserService.GetItemByEmail(user);

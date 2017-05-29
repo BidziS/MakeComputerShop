@@ -58,6 +58,7 @@ namespace MakeComputerShop.Dal.Repositories.impl
             {
                 var newComputer = context.Computers.Add(new ComputerDb());
                 context.Entry(newComputer).State = EntityState.Added;
+                Save();
                 user.Computer = context.Computers.ToList().Last();
                 context.SaveChanges();
             }
