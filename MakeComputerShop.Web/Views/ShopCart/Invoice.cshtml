@@ -1,0 +1,106 @@
+﻿@model MakeComputerShop.Bll.Dtos.ComputerDto
+@{
+    Layout = null;
+}
+
+<center><h2>Faktura</h2></center>
+<hr />
+
+    <table style="width:100%" , border="2">
+        <tr>
+            <th align="center" valign="middle">Nazwa:</th>
+            <th align="center" valign="middle">Cena:</th>
+        </tr>
+
+        @if (Model.Procesor != null)
+        {
+            <tr>
+                <th>@Model.Procesor.Name</th>
+                <th>@Model.Procesor.Price zl</th>
+            </tr>
+        }
+        @if (Model.Motherboard != null)
+        {
+            <tr>
+                <th>@Model.Motherboard.Name</th>
+                <th>@Model.Motherboard.Price zl</th>
+            </tr>
+        }
+        @if (Model.Ram != null)
+        {
+            <tr>
+                <th>@Model.Ram.Name</th>
+                <th>@Model.Ram.Price zl</th>
+            </tr>
+        }
+        @if (Model.HardDrive != null)
+        {
+            <tr>
+                <th>@Model.HardDrive.Name</th>
+                <th>@Model.HardDrive.Price zl</th>
+            </tr>
+        }
+        @if (Model.PowerSupply != null)
+        {
+            <tr>
+                <th>@Model.PowerSupply.Name</th>
+                <th>@Model.PowerSupply.Price zl</th>
+            </tr>
+        }
+        @if (Model.ComputerCasing != null)
+        {
+            <tr>
+                <th>@Model.ComputerCasing.Name</th>
+                <th>@Model.ComputerCasing.Price zl</th>
+            </tr>
+        }
+        @if (Model.GraphicsCard != null)
+        {
+            <tr>
+                <th>@Model.GraphicsCard.Name</th>
+                <th>@Model.GraphicsCard.Price zl</th>
+            </tr>
+        }
+        @if (Model.Drive != null)
+        {
+            <tr>
+                <th>@Model.Drive.Name</th>
+                <th>@Model.Drive.Price zl</th>
+            </tr>
+        }
+        @if (Model.NetworkCard != null)
+        {
+            <tr>
+                <th>@Model.NetworkCard.Name</th>
+                <th>@Model.NetworkCard.Price zl</th>
+            </tr>
+        }
+        @if (Model.SoundCard != null)
+        {
+            <tr>
+                <th>@Model.SoundCard.Name</th>
+                <th>@Model.SoundCard.Price zl</th>
+            </tr>
+        }
+        <tr>
+            <th align="center" valign="middle">Suma:</th>
+            <th>
+                @{ double suma = 0; }
+                @if (Model.Procesor != null) { suma += Model.Procesor.Price; }
+                @if (Model.ComputerCasing != null) { suma += Model.ComputerCasing.Price; }
+                @if (Model.Motherboard != null) { suma += Model.Motherboard.Price; }
+                @if (Model.Ram != null) { suma += Model.Ram.Price; }
+                @if (Model.HardDrive != null) { suma += Model.HardDrive.Price; }
+                @if (Model.PowerSupply != null) { suma += Model.PowerSupply.Price; }
+                @if (Model.GraphicsCard != null) { suma += Model.GraphicsCard.Price; }
+                @if (Model.Drive != null) { suma += Model.Drive.Price; }
+                @if (Model.NetworkCard != null) { suma += Model.NetworkCard.Price; }
+                @if (Model.SoundCard != null) { suma += Model.SoundCard.Price; }
+                @suma zl
+            </th>
+        </tr>
+
+
+
+    </table>
+                    

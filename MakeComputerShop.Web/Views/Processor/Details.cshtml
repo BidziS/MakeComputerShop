@@ -18,16 +18,16 @@
     {
         <div class="item-homepage">
             <div class="row">
-                @Html.Partial("_ProcesorDetails", Model)             
+                @Html.Partial("_ProcesorDetails", Model)
+                <div class="row">
+                    <div class="block-center">
+                        @Html.ActionLink("powrót", "All", "Processor", null , new { @class = "btn" })                     
+                    </div>
+                </div>
+               
                                          
             </div>
-        </div> 
-        <div class="row">
-            <div class="block-center">
-                @Html.ActionLink("powrót", "All", "Processor", null , new { @class = "btn btn-primary" })       
-                @Html.ActionLink("do koszyka", "AddToShopCart", "Processor", new { id = Model.Id }, new { @class = "btn btn-primary" })
-            </div>
-        </div>
+        </div>       
     }
 
 </div>

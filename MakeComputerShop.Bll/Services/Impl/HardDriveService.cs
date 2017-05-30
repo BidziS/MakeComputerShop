@@ -12,38 +12,38 @@ namespace MakeComputerShop.Bll.Services.Impl
 {
     public class HardDriveService:IGenericService<HardDriveDto>
     {
-        private IGenericRepository<HardDriveDb> iGraphicCardRepository;
+        private IGenericRepository<HardDriveDb> HardDriveRepository;
 
-        public HardDriveService(IGenericRepository<HardDriveDb> iGraphicCardRepository)
+        public HardDriveService(IGenericRepository<HardDriveDb> HardDriveRepository)
         {
-            this.iGraphicCardRepository = iGraphicCardRepository;
+            this.HardDriveRepository = HardDriveRepository;
         }
 
         public IEnumerable<HardDriveDto> GetAll()
         {
-            return Mapper.Map<IEnumerable<HardDriveDb>, IEnumerable<HardDriveDto>>(iGraphicCardRepository.GetAll());
+            return Mapper.Map<IEnumerable<HardDriveDb>, IEnumerable<HardDriveDto>>(HardDriveRepository.GetAll());
         }
 
-        public HardDriveDto GetItemById(int graphicCardId)
+        public HardDriveDto GetItemById(int hard_driveId)
         {
-            return Mapper.Map<HardDriveDb, HardDriveDto>(iGraphicCardRepository.GetItemById(graphicCardId));
+            return Mapper.Map<HardDriveDb, HardDriveDto>(HardDriveRepository.GetItemById(hard_driveId));
         }
-        public void InsertItem(HardDriveDto graphicCard)
+        public void InsertItem(HardDriveDto hard_drive)
         {
-            iGraphicCardRepository.InsertItem(Mapper.Map<HardDriveDto, HardDriveDb>(graphicCard));
-            iGraphicCardRepository.Save();
+            HardDriveRepository.InsertItem(Mapper.Map<HardDriveDto, HardDriveDb>(hard_drive));
+            HardDriveRepository.Save();
         }
 
-        public void DeleteItem(int graphicCardId)
+        public void DeleteItem(int hard_driveId)
         {
-            iGraphicCardRepository.DeleteItem(graphicCardId);
-            iGraphicCardRepository.Save();
+            HardDriveRepository.DeleteItem(hard_driveId);
+            HardDriveRepository.Save();
         }
 
         public void UpdateItem(HardDriveDto graphicCard)
         {
-            iGraphicCardRepository.UpdateItem(Mapper.Map<HardDriveDto, HardDriveDb>(graphicCard));
-            iGraphicCardRepository.Save();
+            HardDriveRepository.UpdateItem(Mapper.Map<HardDriveDto, HardDriveDb>(graphicCard));
+            HardDriveRepository.Save();
         }
     }
 }

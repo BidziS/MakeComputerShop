@@ -1,8 +1,22 @@
-﻿
+﻿@model IEnumerable<MakeComputerShop.Bll.Dtos.PowerSupplyDto>
 @{
     ViewBag.Title = "All";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h2>All</h2>
-
+<div class="container">
+    <hr />
+    @if (!Model.Any())
+    {
+        <text>
+            Nie ma żadnych zasilaczy w bazie
+        </text>
+    }
+    else
+    {
+        foreach (var powerSupply in Model)
+        {
+            @Html.Partial("_PowerSupplyListRow", powerSupply);
+        }
+    }
+</div>

@@ -30,5 +30,18 @@ namespace MakeComputerShop.Web.Controllers
 
             return View(shopCart);
         }
+
+        public ActionResult Invoice()
+        {
+            ViewBag.IsShop = true;
+
+            var user = System.Web.HttpContext.Current.User.Identity.Name;
+
+            var userFromBase = iUserService.GetItemByEmail(user);
+
+            var shopCart = userFromBase.Computer;
+
+            return new RazorPDF.PdfActionResult("Invoice", shopCart);
+        }
     }
 }
