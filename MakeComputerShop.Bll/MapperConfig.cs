@@ -50,8 +50,8 @@ namespace MakeComputerShop.Bll
                 cfg.CreateMap<NetworkCardDb, NetworkCardDto>();
                 cfg.CreateMap<NetworkCardDto, NetworkCardDb>();
 
-                cfg.CreateMap<PowerSupplyDto, PowerSupplyDb>();
                 cfg.CreateMap<PowerSupplyDb, PowerSupplyDto>();
+                cfg.CreateMap<PowerSupplyDto, PowerSupplyDb>();
 
                 cfg.CreateMap<ProcesorDb, ProcesorDto>();
                 cfg.CreateMap<ProcesorDto, ProcesorDb>();

@@ -10,7 +10,7 @@
     @if (Model == null)
     {
         <text>
-            Nie ma żadnych producentów w bazie
+            Nie ma żadnych dysków twardych w bazie
         </text>
     }
     else
@@ -21,7 +21,7 @@
                 <div class="row">
                     <div class="block-center">
                         @Html.ActionLink("powrót", "All", "HardDrive", null, new { @class = "btn" })
-                        @*@Html.ActionLink("do koszyka", "AddToShopCart", "HardDrive", new { id = Model.Id }, new { @class = "btn" })*@
+                        @Html.ActionLink("do koszyka", "AddToShopCart", "HardDrive", new { id = Model.Id }, new { @class = "btn" })
                     </div>
                 </div>
             </div>

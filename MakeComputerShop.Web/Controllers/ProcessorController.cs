@@ -18,8 +18,8 @@ namespace MakeComputerShop.Web.Controllers
             IGenericService<ComputerDto> iComputerService, IUserService iUserService)
         {
             this.iProcessorService = iProcessorService;
-            this.iComputerService = iComputerService;
             this.iUserService = iUserService;
+            this.iComputerService = iComputerService;
         }
 
         // GET: Processor

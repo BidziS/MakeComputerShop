@@ -24,7 +24,9 @@ namespace MakeComputerShop.Dal.Repositories.impl
 
         public PowerSupplyDb GetItemById(int itemId)
         {
-            return context.PowerSupplies.Find(itemId);
+            return context.PowerSupplies
+                .Include(p => p.Producent)
+                .FirstOrDefault(p => p.Id == itemId);
         }
 
         public void InsertItem(PowerSupplyDb item)

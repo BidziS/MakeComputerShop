@@ -10,9 +10,9 @@ namespace MakeComputerShop.Web.Controllers
 {
     public class PowerSupplyController : Controller
     {
-        IGenericService<PowerSupplyDto> iPowerSupplyService;
-        private IGenericService<ComputerDto> iComputerService;
-        private IUserService iUserService;
+        private IGenericService<PowerSupplyDto> iPowerSupplyService;
+        IGenericService<ComputerDto> iComputerService;
+        IUserService iUserService;
 
 
         public PowerSupplyController(IGenericService<PowerSupplyDto> iPowerSupplyService,

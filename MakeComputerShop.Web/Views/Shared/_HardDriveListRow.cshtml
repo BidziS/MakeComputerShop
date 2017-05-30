@@ -7,12 +7,13 @@
         <div class="col-md-6 col-lg-6 col-sm-7 col-xs-7 details">
             <h4>@Model.Name</h4>
             <br />
-            <h5>Pojemność: @Model.Capacity</h5>
+            <h5>Pojemność: @Model.Capacity GB</h5>
             <br />
             <h5>Typ: @Model.HardDriveType</h5>
             <br />
-            <h5>Cena: @Model.Price</h5>
+            <h5>Cena: @Model.Price zl</h5>
         </div>
+        
         <div class="col-md-2 col-lg-2 col-sm-5 col-xs-5">
             <div class="flex-center">
                 @Html.ActionLink("szczegóły", "Details", "HardDrive", new { id = Model.Id }, new { @class = "btn" })

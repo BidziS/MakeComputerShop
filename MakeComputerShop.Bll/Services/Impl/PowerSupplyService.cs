@@ -12,38 +12,37 @@ namespace MakeComputerShop.Bll.Services.Impl
 {
     public class PowerSupplyService:IGenericService<PowerSupplyDto>
     {
-        private IGenericRepository<PowerSupplyDb> iGraphicCardRepository;
+        private IGenericRepository<PowerSupplyDb> iHardDriveRepository;
 
-        public PowerSupplyService(IGenericRepository<PowerSupplyDb> iGraphicCardRepository)
+        public PowerSupplyService(IGenericRepository<PowerSupplyDb> iHardDriveRepository)
         {
-            this.iGraphicCardRepository = iGraphicCardRepository;
+            this.iHardDriveRepository = iHardDriveRepository;
         }
 
         public IEnumerable<PowerSupplyDto> GetAll()
         {
-            return Mapper.Map<IEnumerable<PowerSupplyDb>, IEnumerable<PowerSupplyDto>>(iGraphicCardRepository.GetAll());
+            return Mapper.Map<IEnumerable<PowerSupplyDb>, IEnumerable<PowerSupplyDto>>(iHardDriveRepository.GetAll());
         }
 
-        public PowerSupplyDto GetItemById(int graphicCardId)
+        public PowerSupplyDto GetItemById(int itemId)
         {
-            return Mapper.Map<PowerSupplyDb, PowerSupplyDto>(iGraphicCardRepository.GetItemById(graphicCardId));
+            return Mapper.Map<PowerSupplyDb, PowerSupplyDto>(iHardDriveRepository.GetItemById(itemId));
         }
-        public void InsertItem(PowerSupplyDto graphicCard)
+        public void InsertItem(PowerSupplyDto item)
         {
-            iGraphicCardRepository.InsertItem(Mapper.Map<PowerSupplyDto, PowerSupplyDb>(graphicCard));
-            iGraphicCardRepository.Save();
-        }
-
-        public void DeleteItem(int graphicCardId)
-        {
-            iGraphicCardRepository.DeleteItem(graphicCardId);
-            iGraphicCardRepository.Save();
+            iHardDriveRepository.InsertItem(Mapper.Map<PowerSupplyDto, PowerSupplyDb>(item));
         }
 
-        public void UpdateItem(PowerSupplyDto graphicCard)
+        public void DeleteItem(int itemId)
         {
-            iGraphicCardRepository.UpdateItem(Mapper.Map<PowerSupplyDto, PowerSupplyDb>(graphicCard));
-            iGraphicCardRepository.Save();
+            iHardDriveRepository.DeleteItem(itemId);
+            iHardDriveRepository.Save();
+        }
+
+        public void UpdateItem(PowerSupplyDto item)
+        {
+            iHardDriveRepository.UpdateItem(Mapper.Map<PowerSupplyDto, PowerSupplyDb>(item));
+            iHardDriveRepository.Save();
         }
     }
 }
