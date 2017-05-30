@@ -31,6 +31,7 @@ namespace MakeComputerShop.Bll.Services.Impl
         public void InsertItem(PowerSupplyDto item)
         {
             iHardDriveRepository.InsertItem(Mapper.Map<PowerSupplyDto, PowerSupplyDb>(item));
+            iHardDriveRepository.Save();
         }
 
         public void DeleteItem(int itemId)
