@@ -92,6 +92,10 @@
     <Compile Include="Migrations\201705281937158_update models.Designer.cs">
       <DependentUpon>201705281937158_update models.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705302224451_db.cs" />
+    <Compile Include="Migrations\201705302224451_db.Designer.cs">
+      <DependentUpon>201705302224451_db.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseDb.cs" />
     <Compile Include="Models\ComputerCasingDb.cs" />
@@ -137,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705281937158_update models.resx">
       <DependentUpon>201705281937158_update models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705302224451_db.resx">
+      <DependentUpon>201705302224451_db.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

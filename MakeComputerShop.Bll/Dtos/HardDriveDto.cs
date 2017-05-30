@@ -13,7 +13,7 @@ namespace MakeComputerShop.Bll.Dtos
         
         public int ProducentId { get; set; }
         
-        public byte Capacity { get; set; }
+        public int Capacity { get; set; }
         
         public byte CacheMemory { get; set; }
         
