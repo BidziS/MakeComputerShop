@@ -45,6 +45,11 @@ namespace MakeComputerShop.Web.Controllers
             return View(processor);
         }
 
+        /// <summary>
+        /// Metoda ta dodaje wybrany procesor do komputera zalogowanego użytkownika
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public RedirectToRouteResult AddToShopCart(int id)
         {
             var user = System.Web.HttpContext.Current.User.Identity.Name;
