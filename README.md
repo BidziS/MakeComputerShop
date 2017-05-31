@@ -6,16 +6,16 @@ hasła zaś drugim sposobem jest dokonanie logowania za pomocą konta z portalu 
 koszyka możliwe jest dokonanie wydruku faktury.
 
 Serwisy aplikacji:
-	Procesory
-	Płyty główne 
-	Obudowy
-	Pamięć RAM
-	Zasilacze
-	Karty graficzne
-	Karty dźwiękowe
-	Karty sieciowe
-	Dyski twarde
-	Napędy
+- Procesory
+- Płyty główne 
+- Obudowy
+- Pamięć RAM
+- Zasilacze
+- Karty graficzne
+- Karty dźwiękowe
+- Karty sieciowe
+- Dyski twarde
+- Napędy
 
 Po wybraniu jakiegokolwiek podzespołu ukaże się lista z danymi produktami. W każdym produkcie istnieje możliwość
 sprawdzenia szczegółowych parametrów urządzenia. Po kliknięciu przycisku powrót mamy możliwość dodania
