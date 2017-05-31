@@ -17,6 +17,7 @@ using MakeComputerShop.Dal.Repositories.impl;
 
 namespace MakeComputerShop.Tests
 {
+    [TestFixture]
     class ComputerCasingServiceTest
     {
         [Test]
