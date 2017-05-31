@@ -39,6 +39,11 @@ namespace MakeComputerShop.Web.Controllers
         {
             var user = System.Web.HttpContext.Current.User.Identity.Name;
 
+            if (user == "")
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             var userFromBase = iUserService.GetItemByEmail(user);
 
             var computer = userFromBase.Computer;
