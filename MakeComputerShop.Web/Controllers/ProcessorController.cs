@@ -22,7 +22,10 @@ namespace MakeComputerShop.Web.Controllers
             this.iComputerService = iComputerService;
         }
 
-        // GET: Processor
+        /// <summary>
+        /// Metoda zwraca wszystkie dostępne w bazie procesory
+        /// </summary>
+        /// <returns>IEnumerable<ProcesorDto></returns>
         public ActionResult All()
         {
             var processors = iProcessorService.GetAll();
@@ -30,6 +33,11 @@ namespace MakeComputerShop.Web.Controllers
             return View(processors);
         }
 
+        /// <summary>
+        /// Metoda zwraca informacje szczegółowe o procesorze
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>ProcesorDto</returns>
         public ActionResult Details(int id)
         {
             var processor = iProcessorService.GetItemById(id);

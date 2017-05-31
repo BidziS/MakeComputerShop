@@ -19,7 +19,10 @@ namespace MakeComputerShop.Web.Controllers
             this.iComputerService = iComputerService;
         }
 
-        // GET: Details
+        /// <summary>
+        /// Metoda zwraca wszystkie dostępne w bazie komputery
+        /// </summary>
+        /// <returns>IEnumerable<ComputerDto></returns>
         public ActionResult All()
         {
             var user = System.Web.HttpContext.Current.User.Identity.Name;
@@ -29,6 +32,12 @@ namespace MakeComputerShop.Web.Controllers
             return View(computers);
         }
 
+        /// <summary>
+        /// Metoda zwraca informacje szczegółowe o komputerze
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>ComputerDto</returns>
+        /// 
         public ActionResult Details(int id)
         {
             var computer = iComputerService.GetItemById(id);

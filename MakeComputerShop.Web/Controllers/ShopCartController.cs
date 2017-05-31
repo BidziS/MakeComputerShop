@@ -17,7 +17,10 @@ namespace MakeComputerShop.Web.Controllers
             this.iUserService = iUserService;
         }
 
-        // GET: ShopCart
+        /// <summary>
+        /// Zwraca komputer, który jest w koszyku
+        /// </summary>
+        /// <returns>ComputerDto</returns>
         public ActionResult ShopCart()
         {
             ViewBag.IsShop = true;
@@ -31,6 +34,10 @@ namespace MakeComputerShop.Web.Controllers
             return View(shopCart);
         }
 
+        /// <summary>
+        /// Metoda generująca zamówienie w formie PDF
+        /// </summary>
+        /// <returns>plik PDF</returns>
         public ActionResult Invoice()
         {
             ViewBag.IsShop = true;
